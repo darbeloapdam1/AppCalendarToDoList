@@ -10,7 +10,7 @@ namespace AppCalendarToDoList
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new PaginaMenu();
         }
 
         protected override void OnStart()
