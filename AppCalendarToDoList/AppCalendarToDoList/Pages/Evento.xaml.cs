@@ -6,17 +6,20 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using AppCalendarToDoList.Pages;
+using AppCalendarToDoList.ViewModels;
+
 
 namespace AppCalendarToDoList.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class PaginaTareas : ContentPage
+    public partial class Evento : ContentPage
     {
-        public PaginaTareas()
+        EventoViewModel ViewModel;
+        public Evento()
         {
             InitializeComponent();
-            
-        }
-    }
+            ViewModel = new EventoViewModel();
+            BindingContext = ViewModel;
+		}
+	}
 }

@@ -16,6 +16,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Pages\Evento.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Pages\PaginaEventos.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
