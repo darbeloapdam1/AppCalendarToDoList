@@ -2,27 +2,27 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppCalendarToDoList.Pages.PaginaTareas"
-             Title="Tareas">
+             Title="Tareas" BackgroundColor="Black">
     <ContentPage.Content>
-        <Frame BackgroundColor="white">
         <Grid>
+            
             <Grid.RowDefinitions>
                 <RowDefinition Height="30"></RowDefinition>
                 <RowDefinition Height="80"></RowDefinition>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="300"></ColumnDefinition>
+                <ColumnDefinition Width="160"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Label Text="Sábado" Grid.Row="0" Grid.Column="0" FontSize="24"></Label>
-            <Label Text="15" FontSize="32" Grid.Column="0" Grid.Row="1" Margin="0,0,270,0"></Label>
+            <Frame CornerRadius="10" BackgroundColor="Transparent" BorderColor="White" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"></Frame>
+            <Label Text="Sábado" Grid.Row="0" Grid.Column="0" FontSize="24" Margin="10,0,0,0"></Label>
+            <Label Text="15" FontSize="32" TextColor="White" Grid.Column="0" Grid.Row="1" Margin="10,0,270,0"></Label>
             <Line BackgroundColor="red" Grid.Column="0" Grid.Row="1" Margin="30,10,269,10"></Line>
-            <Label Text="Ningún evento" Grid.Column="0" Grid.Row="1" Margin="50,15,0,0"></Label>
+            <Label Text="Ningún evento" Grid.Column="0" Grid.Row="1" Margin="60,15,0,0"></Label>
             <!--<Ellipse Fill="aqua" WidthRequest="6" HeightRequest="6" Grid.Column="0" Grid.Row="1" HorizontalOptions="Start" 
                      Margin="160,10,0,0"></Ellipse>-->
-            <Label Text="Ninguna tarea" Grid.Column="0" Grid.Row="1" Margin="50,45,0,0"></Label>
+            <Label Text="Ninguna tarea" Grid.Column="0" Grid.Row="1" Margin="60,45,0,0"></Label>
             <!--<Ellipse Fill="aqua" WidthRequest="6" HeightRequest="6" Grid.Column="0" Grid.Row="1" HorizontalOptions="Start" 
                      Margin="160,50,0,10"></Ellipse>-->
         </Grid>
-        </Frame>
     </ContentPage.Content>
 </ContentPage>
