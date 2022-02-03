@@ -12,9 +12,10 @@ namespace AppCalendarToDoList.Model
         public DateTime fechaFinal { get; set; }
         public int prioridad { get; set; }
         public bool completado { get; set; }
+        public int color { get; set; }
 
         public Tarea(string titulo, List<Objetivo> objetivos, DateTime fechaInicio, DateTime fechaFinal, 
-            int prioridad, bool compleatdo)
+            int prioridad, bool compleatdo, int color)
         {
             this.titulo = titulo;
             this.objetivos = objetivos;
@@ -22,6 +23,7 @@ namespace AppCalendarToDoList.Model
             this.fechaFinal = fechaFinal;
             this.prioridad = prioridad;
             this.completado = completado;
+            this.color = color;
         }
     }
 }

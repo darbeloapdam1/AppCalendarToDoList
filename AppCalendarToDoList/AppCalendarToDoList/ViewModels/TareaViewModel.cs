@@ -98,10 +98,23 @@ namespace AppCalendarToDoList.ViewModels
             }
         }
 
+        int _color;
+        public int Color
+        {
+            get { return _color; }
+            set
+            {
+                if(value != _color)
+                {
+                    _color = value;
+                    OnPropertyChanged("Color")
+                }
+            }
+
         public TareaViewModel() { }
 
         public TareaViewModel(string titulo, DateTime fechaInicio, DateTime fechaFinal, int prioridad, 
-            bool completado, List<Objetivo> objetivos)
+            bool completado, List<Objetivo> objetivos, int color)
         {
             this.Titulo = titulo;
             this.FechaInicio = fechaInicio;
@@ -109,6 +122,7 @@ namespace AppCalendarToDoList.ViewModels
             this.Prioridad = prioridad;
             this.Completado = completado;
             this.Objetivos = objetivos;
+            this.Color = color;
         }
 
     }
