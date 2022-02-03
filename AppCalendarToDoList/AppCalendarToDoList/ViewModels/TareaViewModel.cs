@@ -104,12 +104,13 @@ namespace AppCalendarToDoList.ViewModels
             get { return _color; }
             set
             {
-                if(value != _color)
+                if (value != _color)
                 {
                     _color = value;
-                    OnPropertyChanged("Color")
+                    OnPropertyChanged("Color");
                 }
             }
+        }
 
         public TareaViewModel() { }
 
