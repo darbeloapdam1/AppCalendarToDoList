@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel;
+using AppCalendarToDoList.Model;
 
 namespace AppCalendarToDoList.ViewModels
 {
@@ -68,5 +69,47 @@ namespace AppCalendarToDoList.ViewModels
                 }
             }
         }
+
+        bool _completado;
+        public bool Completado
+        {
+            get { return _completado; }
+            set
+            {
+                if(value != _completado)
+                {
+                    _completado = value;
+                    OnPropertyChanged("Completado");
+                }
+            }
+        }
+
+        List<Objetivo> _objetivos;
+        public List<Objetivo> Objetivos
+        {
+            get { return _objetivos; }
+            set
+            {
+                if(value != _objetivos)
+                {
+                    _objetivos = value;
+                    OnPropertyChanged("Objetivos");
+                }
+            }
+        }
+
+        public TareaViewModel() { }
+
+        public TareaViewModel(string titulo, DateTime fechaInicio, DateTime fechaFinal, int prioridad, 
+            bool completado, List<Objetivo> objetivos)
+        {
+            this.Titulo = titulo;
+            this.FechaInicio = fechaInicio;
+            this.FechaFinal = fechaFinal;
+            this.Prioridad = prioridad;
+            this.Completado = completado;
+            this.Objetivos = objetivos;
+        }
+
     }
 }

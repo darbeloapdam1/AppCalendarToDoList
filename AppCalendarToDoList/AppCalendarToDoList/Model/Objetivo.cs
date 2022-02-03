@@ -8,5 +8,11 @@ namespace AppCalendarToDoList.Model
     {
         public string descripcion { get; set; }
         public bool completado { get; set; }
+
+        public Objetivo(string descripcion, bool completado)
+        {
+            this.descripcion = descripcion;
+            this.completado = completado;
+        }
     }
 }

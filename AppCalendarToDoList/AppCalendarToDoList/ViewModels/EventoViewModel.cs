@@ -69,19 +69,46 @@ namespace AppCalendarToDoList.ViewModels
             }
         }
 
-        List<int> _avisoRepetir;
-        public List<int> AvisoRepetir
+        int _repetir;
+        public int Repetir
         {
-            get { return _avisoRepetir; }
+            get { return _repetir; }
             set
             {
-                if (value != _avisoRepetir)
+                if (value != _repetir)
                 {
-                    _avisoRepetir = value;
-                    OnPropertyChanged("AvisoRepetir");
+                    _repetir = value;
+                    OnPropertyChanged("Repetir");
                 }
             }
 
+        }
+
+        int _aviso;
+        public int Aviso
+        {
+            get { return _aviso; }
+            set
+            {
+                if(value != _aviso)
+                {
+                    _aviso = value;
+                    OnPropertyChanged("Aviso");
+                }
+            }
+        }
+
+        public EventoViewModel() { }
+
+        public EventoViewModel(string titulo, DateTime diaHoraInicio, DateTime diaHoraFinal, 
+            bool completado, int[] avisoRepetir)
+        {
+            this.Titulo = titulo;
+            this.DiaHoraInicio = diaHoraInicio;
+            this.DiaHoraFinal = diaHoraFinal;
+            this.Completado = completado;
+            this.Repetir = avisoRepetir[1];
+            this.Aviso = avisoRepetir[0];
         }
     }
 }

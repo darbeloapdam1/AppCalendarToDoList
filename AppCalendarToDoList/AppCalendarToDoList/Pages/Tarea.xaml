@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppCalendarToDoList.Pages.Tarea">
+    <ContentPage.Content>
+        <Grid BackgroundColor="Black">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="100"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="390"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Frame BorderColor="White" BackgroundColor="Black"  CornerRadius="10" Margin="0,0,15,0"
+                   Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="3"></Frame>
+
+
+            <!--Grid para el header-->
+            <Grid Grid.Row="0" Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30"></ColumnDefinition>
+                    <ColumnDefinition Width="360"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Frame BorderColor="White" BackgroundColor="Black"  CornerRadius="10" Grid.Column="0" 
+                       Grid.ColumnSpan="2" Grid.Row="0"></Frame>
+                <!--<Ellipse Fill="red" WidthRequest="5" HeightRequest="5" Grid.Column="0" Grid.Row="0"
+                         Margin="0,0,0,0"></Ellipse>-->
+                <Frame x:Name="frmTituloTarea" BorderColor="White" BackgroundColor="Green" CornerRadius="10" 
+                       Grid.Column="1" Grid.Row="0"></Frame>
+                <Label x:Name="lblTitulo" Text="Presentación producto" FontSize="24" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"
+                       Margin="10,0,0,0" Grid.Column="1" Grid.Row="0"></Label>
+                <Label x:Name="lblProgreso" Text="63%" FontSize="24" HorizontalTextAlignment="End" VerticalTextAlignment="Center"
+                       Margin="0,0,10,0" Grid.Column="1" Grid.Row="0"></Label>
+            </Grid>
+
+
+            <!--Grid para el contenido de la tarea-->
+            <Grid Grid.Column="0" Grid.Row="1">
+                <Grid.RowDefinitions>
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+
+                </Grid.ColumnDefinitions>
+                <CheckBox x:Name="chkObjetivoCompletado" Color="White" Margin="10,0,0,0"></CheckBox>
+                <Label x:Name="lblTituloObjetivo" Text="Investigación del producto" FontSize="24" 
+                       VerticalTextAlignment="Center" Margin="50,0,0,0"></Label>
+            </Grid>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
