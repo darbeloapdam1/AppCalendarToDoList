@@ -15,6 +15,7 @@ namespace AppCalendarToDoList.Pages
         public PaginaEventos()
         {
             InitializeComponent();
+            
         }
     }
 }
