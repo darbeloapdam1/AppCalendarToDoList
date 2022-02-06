@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace AppCalendarToDoList.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class PaginaTareaDetalles : ContentPage
+    public partial class PaginaNuevaTarea : ContentPage
     {
-        public PaginaTareaDetalles()
+        public PaginaNuevaTarea()
         {
             InitializeComponent();
         }

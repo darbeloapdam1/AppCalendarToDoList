@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AppCalendarToDoList.Pages.PaginaTareaDetalles">
+             x:Class="AppCalendarToDoList.Pages.PaginaNuevaTarea">
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
@@ -15,9 +15,7 @@
                 <RowDefinition Height="30"></RowDefinition>
                 <RowDefinition Height="40"></RowDefinition>
                 <RowDefinition Height="40"></RowDefinition>
-                <RowDefinition Height="10"></RowDefinition>
-                <RowDefinition Height="40"></RowDefinition>
-                <RowDefinition Height="2"></RowDefinition>
+                <RowDefinition Height="60"></RowDefinition>
                 <RowDefinition Height="40"></RowDefinition>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
@@ -64,7 +62,6 @@
                 <Frame BorderColor="white" CornerRadius="10" BackgroundColor="Transparent" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"></Frame>
                 <Frame BorderColor="white" CornerRadius="10" BackgroundColor="Transparent" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2"></Frame>
                 <Label Text="Objetivos" FontSize="18" TextColor="white" Grid.Column="0" Grid.Row="0" VerticalOptions="Center" Margin="10,0,0,0"></Label>
-                <Label x:Name="lblProgresoTarea" Text="50%" FontSize="18" TextColor="white" Grid.Column="0" Grid.Row="0" VerticalOptions="Center" Margin="280,0,0,0"></Label>
                 <ImageButton Clicked="ImageButton_Clicked" BackgroundColor="Red" Grid.Column="1" Grid.Row="0" Margin="10"></ImageButton>
                 <!--<ScrollView x:Name="scvObjetivos" BackgroundColor="red" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Margin="10,0,10,10">
                     <StackLayout>
@@ -104,8 +101,6 @@
 
             <Button x:Name="btnGuardarTarea" Text="Guardar tarea" TextColor="white" BackgroundColor="Transparent" BorderColor="white" BorderWidth="1" CornerRadius="20"
                     Grid.Row="11" Grid.Column="1"></Button>
-            <Button x:Name="btnBorrarTarea" Text="Borrar tarea" TextColor="white" BackgroundColor="Transparent" BorderColor="red" BorderWidth="1" CornerRadius="20"
-                    Grid.Row="13" Grid.Column="1"></Button>
 
         </Grid>
     </ContentPage.Content>
