@@ -1,9 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<FlyoutPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppCalendarToDoList.Pages.PaginaTareas"
              Title="Tareas" BackgroundColor="Black">
-    <ContentPage.Content>
-        
-    </ContentPage.Content>
-</ContentPage>
+    <FlyoutPage.Flyout>
+        <ContentPage Title="Tareas" BackgroundColor="Black">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10"></RowDefinition>
+                    <RowDefinition Height="540"></RowDefinition>
+                    <RowDefinition Height="40"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10"></ColumnDefinition>
+                    <ColumnDefinition Width="380"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <ScrollView x:Name="scvTareas" Grid.Row="1" Grid.Column="1" Margin="0,0,0,10">
+                    <Grid x:Name="grdTareas" BackgroundColor="red">
+
+                    </Grid>
+                </ScrollView>
+                <Button x:Name="btnNuevaTarea" Text="Nueva tarea" BorderColor="white" BorderWidth="1" BackgroundColor="Transparent" TextColor="white" CornerRadius="20" 
+                    Clicked="btnNuevaTarea_Clicked" Grid.Row="2" Grid.Column="1"></Button>
+            </Grid>
+        </ContentPage>
+    </FlyoutPage.Flyout>
+    <FlyoutPage.Detail>
+        <ContentPage>
+
+        </ContentPage>
+    </FlyoutPage.Detail>
+</FlyoutPage>

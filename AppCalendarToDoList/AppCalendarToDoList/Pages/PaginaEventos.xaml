@@ -4,6 +4,13 @@
              x:Class="AppCalendarToDoList.Pages.PaginaEventos"
              Title="Eventos" BackgroundColor="Black">
     <ContentPage.Content>
-        <Grid></Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                
+            </Grid.ColumnDefinitions>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
