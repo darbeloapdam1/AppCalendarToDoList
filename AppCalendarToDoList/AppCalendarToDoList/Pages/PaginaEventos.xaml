@@ -96,8 +96,6 @@
                     <Image Source="" BackgroundColor="white" HorizontalOptions="End"></Image>
                 </StackLayout>
             </Grid>
-            <Button x:Name="btnBorrarEvento" Text="Borrar evento" BorderColor="red" BorderWidth="1" BackgroundColor="Black" CornerRadius="20" Opacity="70" TextColor="White"
-                    Grid.Column="1" Grid.Row="6"></Button>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

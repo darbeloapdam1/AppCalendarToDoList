@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AppCalendarToDoList.Pages.PaginaEventoDetalles">
+             x:Class="AppCalendarToDoList.Pages.PaginaNuevoEvento">
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
@@ -36,7 +36,7 @@
 
             <!--Dia de la semana y mes y mes del evento-->
             <Label x:Name="lblFecha" Text="Miercoles 19 de Enero" FontSize="24" Grid.Row="1" Grid.Column="1"></Label>
-            <Entry x:Name="entTituloEvento" Text="Reunión de contabilida" Placeholder="Título del evento" PlaceholderColor="LightGray" BackgroundColor="Black"
+            <Entry x:Name="entTituloEvento" PlaceholderColor="LightGray" Placeholder="Título del evento" BackgroundColor="Black"
                    Grid.Column="1" Grid.Row="2"></Entry>
 
             <!--Grid para la duración del evento-->
@@ -95,8 +95,6 @@
                     <Image Source="" BackgroundColor="white" HorizontalOptions="End"></Image>
                 </StackLayout>
             </Grid>
-            <Button x:Name="btnBorrarEvento" Text="Borrar evento" BorderColor="red" BorderWidth="1" BackgroundColor="Black" CornerRadius="20" Opacity="70" TextColor="White"
-                    Grid.Column="1" Grid.Row="6"></Button>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
