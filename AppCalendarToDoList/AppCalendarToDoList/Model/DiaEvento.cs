@@ -13,13 +13,51 @@ namespace AppCalendarToDoList.Model
         List<EventoViewModel> eventos;
         List<TareaViewModel> tareas;
         Grid grid;
-        string diaSemana, dia, mes;
+        string diaSemana, dia, mes, numEventos, numTareas;
         public DiaEvento(DateTime fecha)
         {
             this.fecha = fecha;
             this.dia = "" + fecha.Day;
             this.diaSemana = fecha.DayOfWeek.ToString();
+            NumEventos = getNumEventos();
+            NumTareas = getNumTareas();
             Grid = crearGridDia();
+        }
+
+        public DateTime Fecha
+        {
+            get { return fecha; }
+            set { fecha = value; }
+        }
+
+        public List<EventoViewModel> Eventos
+        {
+            get { return eventos; }
+            set { eventos = value; }
+        }
+
+        public List<TareaViewModel> Tareas
+        {
+            get { return tareas; }
+            set { tareas = value; }
+        }
+
+        public String DiaSemana
+        {
+            get { return diaSemana; }
+            set { diaSemana = value; }
+        }
+
+        public string Dia
+        {
+            get { return dia; }
+            set { dia = value; }
+        }
+
+        public string Mes
+        {
+            get { return mes; }
+            set { mes = value; }
         }
 
         public Grid Grid
@@ -28,6 +66,75 @@ namespace AppCalendarToDoList.Model
             set
             {
                 this.grid = value;
+            }
+        }
+
+        public string NumEventos
+        {
+            get { return numEventos; }
+            set { numEventos = value; }
+        }
+
+        public string NumTareas
+        {
+            get { return numTareas; }
+            set { numTareas = value; }
+        }
+
+        private string getNumEventos()
+        {
+            try
+            {
+                if (eventos == null)
+                {
+                    return "Ningún evento";
+                }
+                else
+                {
+                    if (Eventos.Count == 0)
+                    {
+                        return "Ningún evento";
+                    }
+                    else if (Eventos.Count == 1)
+                    {
+                        return "1 evento";
+                    }
+                    else
+                    {
+                        return Eventos.Count + " eventos";
+                    }
+                }
+            }catch(Exception ex)
+            {
+                return "Ningún evento";
+            }
+        }
+
+        private string getNumTareas()
+        {
+            try
+            {
+                if(tareas == null)
+                {
+                    return "Ninguna tareaa";
+                }
+                else
+                {
+                    if(Tareas.Count == 0)
+                    {
+                        return "Ninguna tarea";
+                    }else if(Tareas.Count == 1)
+                    {
+                        return "1 tarea";
+                    }
+                    else
+                    {
+                        return tareas.Count + " tareas";
+                    }
+                }
+            }catch(Exception ex)
+            {
+                return "Ninguna tarea";
             }
         }
 
@@ -76,13 +183,13 @@ namespace AppCalendarToDoList.Model
 
             grid.Children.Add(new Label
             {
-                Text = "Ningún evento",
+                Text = NumEventos,
                 Margin = new Thickness(60, 15, 0, 0)
             }, 0, 1);
 
             grid.Children.Add(new Label
             {
-                Text = "Ninguna tarea",
+                Text = NumTareas,
                 Margin = new Thickness(60, 45, 0, 0)
             }, 0, 1);
 
