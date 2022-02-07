@@ -16,5 +16,10 @@ namespace AppCalendarToDoList.Pages
         {
             InitializeComponent();
         }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            entTituloEvento.Focus();
+        }
     }
 }

@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<FlyoutPage xmlns="http://xamarin.com/schemas/2014/forms"
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppCalendarToDoList.Pages.PaginaTareas"
-             Title="Tareas" BackgroundColor="Black">
-    <FlyoutPage.Flyout>
-        <ContentPage Title="Tareas" BackgroundColor="Black">
+              BackgroundColor="Black"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="10"></RowDefinition>
@@ -23,11 +23,5 @@
                 <Button x:Name="btnNuevaTarea" Text="Nueva tarea" BorderColor="white" BorderWidth="1" BackgroundColor="Transparent" TextColor="white" CornerRadius="20" 
                     Clicked="btnNuevaTarea_Clicked" Grid.Row="2" Grid.Column="1"></Button>
             </Grid>
-        </ContentPage>
-    </FlyoutPage.Flyout>
-    <FlyoutPage.Detail>
-        <ContentPage>
-
-        </ContentPage>
-    </FlyoutPage.Detail>
-</FlyoutPage>
+    </ContentPage.Content>
+</ContentPage>

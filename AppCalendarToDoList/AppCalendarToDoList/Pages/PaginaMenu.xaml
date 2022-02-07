@@ -3,6 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:pages="clr-namespace:AppCalendarToDoList.Pages"
             x:Class="AppCalendarToDoList.Pages.PaginaMenu">
   <!--Pages can be added as references or inline-->
-    <pages:PaginaTareas></pages:PaginaTareas>
-    <pages:PaginaEventos></pages:PaginaEventos>
+    
+    <NavigationPage Title="Tareas">
+        <x:Arguments>
+            <pages:PaginaTareas/>
+        </x:Arguments>
+    </NavigationPage>
+    <NavigationPage Title="Eventos">
+        <x:Arguments>
+            <pages:PaginaEventos/>
+        </x:Arguments>
+    </NavigationPage>
+    
 </TabbedPage>

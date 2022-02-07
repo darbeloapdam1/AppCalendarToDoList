@@ -2,15 +2,26 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppCalendarToDoList.Pages.PaginaEventos"
-             Title="Eventos" BackgroundColor="Black">
+              BackgroundColor="Black"
+             NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
-                
+                <RowDefinition Height="10"></RowDefinition>
+                <RowDefinition Height="540"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                
+                <ColumnDefinition Width="10"></ColumnDefinition>
+                <ColumnDefinition Width="380"></ColumnDefinition>
             </Grid.ColumnDefinitions>
+            <ScrollView x:Name="scvEventos" Grid.Row="1" Grid.Column="1" Margin="0,0,0,10">
+                <Grid x:Name="grdEventos" BackgroundColor="red">
+
+                </Grid>
+            </ScrollView>
+            <Button x:Name="btnNuevoEvento" Text="Nuevo evento" BorderColor="white" BorderWidth="1" BackgroundColor="Transparent" TextColor="white" CornerRadius="20" 
+                    Clicked="btnNuevoEvento_Clicked" Grid.Row="2" Grid.Column="1"></Button>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

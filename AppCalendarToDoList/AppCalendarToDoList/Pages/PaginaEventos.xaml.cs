@@ -18,6 +18,10 @@ namespace AppCalendarToDoList.Pages
             
         }
 
+        private void btnNuevoEvento_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new PaginaNuevoEvento());
+        }
         
     }
 }

@@ -11,7 +11,7 @@ using AppCalendarToDoList.Pages;
 namespace AppCalendarToDoList.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class PaginaTareas : FlyoutPage
+    public partial class PaginaTareas : ContentPage
     {
         public PaginaTareas()
         {
@@ -38,8 +38,9 @@ namespace AppCalendarToDoList.Pages
         }
         private void btnNuevaTarea_Clicked(object sender, EventArgs e)
         {
-            Detail = new NavigationPage(new PaginaNuevaTarea());
-            IsPresented = false;
+            Navigation.PushAsync(new PaginaNuevaTarea());
+            //Page paginaNuevaTarea = new PaginaNuevaTarea();
+            //paginaNuevaTarea
         }
     }
 }

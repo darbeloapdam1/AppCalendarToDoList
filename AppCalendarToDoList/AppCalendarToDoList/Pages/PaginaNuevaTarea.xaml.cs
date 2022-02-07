@@ -15,11 +15,13 @@ namespace AppCalendarToDoList.Pages
         public PaginaNuevaTarea()
         {
             InitializeComponent();
+            
         }
-
-        private void ImageButton_Clicked(object sender, EventArgs e)
+        protected override void OnAppearing()
         {
-
+            base.OnAppearing();
+            entTituloTarea.Focus();
         }
+
     }
 }

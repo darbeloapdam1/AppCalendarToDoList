@@ -11,7 +11,8 @@ namespace AppCalendarToDoList.Model
         public int id { get; set; }
         [MaxLength(100), NotNull]
         public string titulo { get; set; }
-        public List<Objetivo> objetivos { get; set; }
+        [MaxLength(1000), NotNull]
+        public string objetivos { get; set; }
         [NotNull]
         public DateTime fechaInicio { get; set; }
         [NotNull]
@@ -21,7 +22,8 @@ namespace AppCalendarToDoList.Model
         [NotNull]
         public int color { get; set; }
 
-        public Tarea(string titulo, List<Objetivo> objetivos, DateTime fechaInicio, DateTime fechaFinal, 
+        public Tarea() { }
+        public Tarea(string titulo, string objetivos, DateTime fechaInicio, DateTime fechaFinal, 
             int prioridad, bool compleatdo, int color)
         {
             this.titulo = titulo;

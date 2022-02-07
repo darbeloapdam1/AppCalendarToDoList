@@ -22,6 +22,7 @@ namespace AppCalendarToDoList.Model
         [NotNull]
         public int aviso { get; set; }
 
+        public Evento() { }
         public Evento(string titulo, DateTime diaHoraInicio, DateTime diaHoraFinal, bool completado, List<int> avisoRepetir)
         {
             this.titulo = titulo;
