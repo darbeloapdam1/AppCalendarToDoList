@@ -16,10 +16,35 @@
                 <ColumnDefinition Width="380"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <ScrollView x:Name="scvEventos" Grid.Row="1" Grid.Column="1" Margin="0,0,0,10">
-                <Grid x:Name="grdEventos" BackgroundColor="red">
-
+                <Grid x:Name="grdEventos" BackgroundColor="Transparent">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="160"></ColumnDefinition>
+                        <ColumnDefinition Width="10"></ColumnDefinition>
+                        <ColumnDefinition Width="160"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
                 </Grid>
             </ScrollView>
+            <Picker x:Name="pckMes" TextColor="White" BackgroundColor="Black" HorizontalTextAlignment="Center" SelectedIndex="0" SelectedItem="0" SelectedIndexChanged="pckMes_SelectedIndexChanged"
+                    Margin="50,0,250,500" VerticalOptions="Start" Grid.Column="1" Grid.Row="1">
+                <Picker.Items>
+                    <x:String>Enero</x:String>
+                    <x:String>Febrero</x:String>
+                    <x:String>Marzo</x:String>
+                    <x:String>Abril</x:String>
+                    <x:String>Mayo</x:String>
+                    <x:String>Junio</x:String>
+                    <x:String>Julio</x:String>
+                    <x:String>Agosto</x:String>
+                    <x:String>Septiembre</x:String>
+                    <x:String>Octubre</x:String>
+                    <x:String>Noviembre</x:String>
+                    <x:String>Diciembre</x:String>
+                </Picker.Items>
+            </Picker>
+            <Picker x:Name="pckAnio" TextColor="white" BackgroundColor="Black" HorizontalTextAlignment="Center" SelectedIndex="0" SelectedIndexChanged="pckAnio_SelectedIndexChanged"
+                    Margin="250,0,80,500" VerticalOptions="Start" Grid.Column="1" Grid.Row="1">
+
+            </Picker>
             <Button x:Name="btnNuevoEvento" Text="Nuevo evento" BorderColor="white" BorderWidth="1" BackgroundColor="Transparent" TextColor="white" CornerRadius="20" 
                     Clicked="btnNuevoEvento_Clicked" Grid.Row="2" Grid.Column="1"></Button>
         </Grid>
