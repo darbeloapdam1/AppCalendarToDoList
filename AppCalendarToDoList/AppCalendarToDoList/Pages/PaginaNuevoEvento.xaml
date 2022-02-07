@@ -73,10 +73,20 @@
                 </Grid.ColumnDefinitions>
                 <Frame Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="1" BackgroundColor="black" BorderColor="white" CornerRadius="10"></Frame>
                 <Label Text="Repetir" FontSize="20" TextColor="white" Grid.Column="0" Grid.Row="0" VerticalOptions="Center" Margin="10,0,0,0"></Label>
-                <StackLayout VerticalOptions="Center" Orientation="Horizontal" HorizontalOptions="End" Grid.Column="2" Grid.Row="0" BackgroundColor="Red" Margin="0,0,10,0">
+                <Picker Grid.Column="2" Grid.Row="0">
+                    <Picker.Items>
+                        <x:String>Nunca</x:String>
+                        <x:String>Todos los días</x:String>
+                        <x:String>Todas las semanas</x:String>
+                        <x:String>Cada dos semanas</x:String>
+                        <x:String>Todos los meses</x:String>
+                        <x:String>Todos los años</x:String>
+                    </Picker.Items>
+                </Picker>
+                <!--<StackLayout VerticalOptions="Center" Orientation="Horizontal" HorizontalOptions="End" Grid.Column="2" Grid.Row="0" BackgroundColor="Red" Margin="0,0,10,0">
                     <Label Text="Nunca" TextColor="white" FontSize="20"></Label>
                     <Image Source="" BackgroundColor="white"></Image>
-                </StackLayout>
+                </StackLayout>-->
             </Grid>
 
             <!--Grid para la opción del aviso-->
