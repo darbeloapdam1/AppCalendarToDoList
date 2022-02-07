@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using SQLite;
+using AppCalendarToDoList.ViewModels;
 
 namespace AppCalendarToDoList.Model
 {
@@ -24,7 +25,7 @@ namespace AppCalendarToDoList.Model
 
         public Tarea() { }
         public Tarea(string titulo, string objetivos, DateTime fechaInicio, DateTime fechaFinal, 
-            int prioridad, bool compleatdo, int color)
+            int prioridad, bool completado, int color)
         {
             this.titulo = titulo;
             this.objetivos = objetivos;
@@ -33,6 +34,37 @@ namespace AppCalendarToDoList.Model
             this.prioridad = prioridad;
             this.completado = completado;
             this.color = color;
+        }
+
+        public Tarea(TareaViewModel tareaVM)
+        {
+            this.titulo = tareaVM.Titulo;
+            this.fechaInicio = tareaVM.FechaInicio;
+            this.fechaFinal = tareaVM.FechaFinal;
+            this.prioridad = tareaVM.Prioridad;
+            this.completado = tareaVM.Completado;
+            this.color = tareaVM.Color;
+            this.objetivos = getObjetivosTareaString(tareaVM.Objetivos);
+        }
+
+        //Convierte una lista de Objetivos a un string con formato definido
+        private string getObjetivosTareaString(List<Objetivo> objTareaVM)
+        {
+            string objetivosString = "";
+            foreach(Objetivo obj in objTareaVM)
+            {
+                objetivosString += obj.descripcion + ",";
+                if (obj.completado)
+                {
+                    objetivosString += "1";
+                }
+                else
+                {
+                    objetivosString += "0";
+                }
+                objetivosString += ";";
+            }
+            return objetivosString;
         }
     }
 }

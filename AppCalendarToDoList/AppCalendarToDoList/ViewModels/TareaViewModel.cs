@@ -126,5 +126,27 @@ namespace AppCalendarToDoList.ViewModels
             this.Color = color;
         }
 
+        public TareaViewModel(Tarea tarea)
+        {
+            this.Titulo = tarea.titulo;
+            this.FechaInicio = tarea.fechaInicio;
+            this.FechaFinal = tarea.fechaFinal;
+            this.Prioridad = tarea.prioridad;
+            this.Completado = tarea.completado;
+            this.Color = tarea.color;
+            this.Objetivos = getObjetivosTareaLista(tarea.objetivos);
+        }
+
+        //Parsea a una lista de Model.Objetivo un string
+        private List<Objetivo> getObjetivosTareaLista(string objetivos){
+            List<Objetivo> lista = new List<Objetivo>();
+            string[] objsString = objetivos.Split(';');
+            foreach (string singleObjsString in objsString){
+                string[] objFinal = singleObjsString.Split(',');
+                lista.Add(new Objetivo(objFinal[0], bool.Parse(objFinal[1])));
+            }
+            return lista;
+        }
+
     }
 }

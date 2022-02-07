@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using AppCalendarToDoList.ViewModels;
 using SQLite;
 
 namespace AppCalendarToDoList.Model
@@ -31,6 +32,16 @@ namespace AppCalendarToDoList.Model
             this.completado = completado;
             this.repetir = avisoRepetir[1];
             this.aviso = avisoRepetir[0];
+        }
+
+        public Evento(EventoViewModel eventVM)
+        {
+            this.titulo = eventVM.Titulo;
+            this.diaHoraFinal = eventVM.DiaHoraFinal;
+            this.diaHoraInicio = eventVM.DiaHoraInicio;
+            this.completado = eventVM.Completado;
+            this.repetir = eventVM.Repetir;
+            this.aviso = eventVM.Aviso;
         }
 
     }
