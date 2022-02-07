@@ -1,16 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AppCalendarToDoList.Pages.PaginaNuevoEvento">
+             x:Class="AppCalendarToDoList.Pages.PaginaNuevoEvento"
+             Title="Nuevo evento" BackgroundColor="Black">
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="42"></RowDefinition>
+                <RowDefinition Height="1"></RowDefinition>
                 <RowDefinition Height="30"></RowDefinition>
                 <RowDefinition Height="40"></RowDefinition>
                 <RowDefinition Height="190"></RowDefinition>
                 <RowDefinition Height="70"></RowDefinition>
-                <RowDefinition Height="150"></RowDefinition>
+                <RowDefinition Height="130"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
                 <RowDefinition Height="40"></RowDefinition>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
@@ -19,7 +21,7 @@
             </Grid.ColumnDefinitions>
 
             <!--Grid para la cabecera de la página-->
-            <Grid Grid.Row="0" Grid.Column="0">
+            <!--<Grid Grid.Row="0" Grid.Column="0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="2"></RowDefinition>
                     <RowDefinition Height="40"></RowDefinition>
@@ -30,9 +32,8 @@
                     <ColumnDefinition Width="100"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <ImageButton BackgroundColor="red" BorderColor="Transparent" Margin="18,0,0,0" Grid.Column="0" Grid.Row="1"></ImageButton>
-                <Button CornerRadius="20" Text="Guardar" BackgroundColor="Black" TextColor="white" BorderColor="white" BorderWidth="1"
-                        Margin="0,0,0,0" Grid.Row="1" Grid.Column="2"></Button>
-            </Grid>
+                
+            </Grid>-->
 
             <!--Dia de la semana y mes y mes del evento-->
             <Label x:Name="lblFecha" Text="Miercoles 19 de Enero" FontSize="24" Grid.Row="1" Grid.Column="1"></Label>
@@ -95,6 +96,8 @@
                     <Image Source="" BackgroundColor="white" HorizontalOptions="End"></Image>
                 </StackLayout>
             </Grid>
+            <Button CornerRadius="20" Text="Guardar" BackgroundColor="Black" TextColor="white" BorderColor="white" BorderWidth="1"
+                        Margin="0,0,0,0" Grid.Row="6" Grid.Column="1"></Button>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
