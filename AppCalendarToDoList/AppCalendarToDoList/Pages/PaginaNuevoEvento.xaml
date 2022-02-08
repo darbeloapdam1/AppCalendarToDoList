@@ -73,7 +73,7 @@
                 </Grid.ColumnDefinitions>
                 <Frame Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="1" BackgroundColor="black" BorderColor="white" CornerRadius="10"></Frame>
                 <Label Text="Repetir" FontSize="20" TextColor="white" Grid.Column="0" Grid.Row="0" VerticalOptions="Center" Margin="10,0,0,0"></Label>
-                <Picker Grid.Column="2" Grid.Row="0">
+                <Picker TextColor="White" Grid.Column="2" Grid.Row="0" x:Name="pckNuevoEvento" Margin="0,0,10,0" HorizontalTextAlignment="End" SelectedIndex="0">
                     <Picker.Items>
                         <x:String>Nunca</x:String>
                         <x:String>Todos los días</x:String>
@@ -101,10 +101,25 @@
                 </Grid.ColumnDefinitions>
                 <Frame Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="1" BackgroundColor="black" BorderColor="white" CornerRadius="10"></Frame>
                 <Label Text="Aviso" FontSize="20" TextColor="white" Grid.Column="0" Grid.Row="0" VerticalOptions="Center" Margin="10,0,0,0"></Label>
-                <StackLayout VerticalOptions="Center" Orientation="Horizontal" HorizontalOptions="End" Grid.Column="2" Grid.Row="0" BackgroundColor="Red" Margin="0,0,10,0">
+                <Picker TextColor="White" Grid.Column="2" Grid.Row="0" x:Name="pckNuevoEvento" Margin="0,0,10,0" HorizontalTextAlignment="End" SelectedIndex="0">
+                    <Picker.Items>
+                        <x:String>No</x:String>
+                        <x:String>A la hora del evento</x:String>
+                        <x:String>5 minutos antes</x:String>
+                        <x:String>10 minutos antes</x:String>
+                        <x:String>20 minutos antes</x:String>
+                        <x:String>30 minutos antes</x:String>
+                        <x:String>1 hora antes</x:String>
+                        <x:String>2 horas antes</x:String>
+                        <x:String>1 día antes</x:String>
+                        <x:String>2 días antes</x:String>
+                        <x:String>1 semanas antes</x:String>
+                    </Picker.Items>
+                </Picker>
+                <!--<StackLayout VerticalOptions="Center" Orientation="Horizontal" HorizontalOptions="End" Grid.Column="2" Grid.Row="0" BackgroundColor="Red" Margin="0,0,10,0">
                     <Label Text="10 minutos antes" TextColor="white" FontSize="20"></Label>
                     <Image Source="" BackgroundColor="white" HorizontalOptions="End"></Image>
-                </StackLayout>
+                </StackLayout>-->
             </Grid>
             <Button CornerRadius="20" Text="Guardar" BackgroundColor="Black" TextColor="white" BorderColor="white" BorderWidth="1"
                         Margin="0,0,0,0" Grid.Row="6" Grid.Column="1"></Button>
