@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Shapes;
 using Xamarin.Forms.Xaml;
@@ -106,12 +105,7 @@ namespace AppCalendarToDoList.Pages
 
         private void addDiasGrid(List<DiaEvento> dias)
         {
-            RowDefinitionCollection filas = grdEventos.RowDefinitions;
-            for(int i = 0; i < filas.Count; i++)
-            {
-                grdEventos.RowDefinitions.RemoveAt(0);
-            }
-            grdEventos.RowDefinitions.Add(new RowDefinition { Height = new GridLength(10) });
+            grdEventos.RowDefinitions.Add(new RowDefinition { Height = new GridLength(40) });
             for (int i = 0; i < dias.Count; i++)
             {
                 int columna = 0;
@@ -130,6 +124,16 @@ namespace AppCalendarToDoList.Pages
                 grdEventos.Children.Add(dias[i].Grid, columna, grdEventos.RowDefinitions.Count);
                 
             }
+        }
+
+        private void clearGrid()
+        {
+            RowDefinitionCollection filas = grdEventos.RowDefinitions;
+            for (int i = 0; i < filas.Count; i++)
+            {
+                grdEventos.RowDefinitions.RemoveAt(0);
+            }
+            grdEventos.Children.Clear();
         }
 
         private void pckMes_SelectedIndexChanged(object sender, EventArgs e)
