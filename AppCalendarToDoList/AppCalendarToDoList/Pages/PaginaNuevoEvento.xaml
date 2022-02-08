@@ -73,7 +73,7 @@
                 </Grid.ColumnDefinitions>
                 <Frame Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="1" BackgroundColor="black" BorderColor="white" CornerRadius="10"></Frame>
                 <Label Text="Repetir" FontSize="20" TextColor="white" Grid.Column="0" Grid.Row="0" VerticalOptions="Center" Margin="10,0,0,0"></Label>
-                <Picker TextColor="White" Grid.Column="2" Grid.Row="0" x:Name="pckNuevoEvento" Margin="0,0,10,0" HorizontalTextAlignment="End" SelectedIndex="0">
+                <Picker TextColor="White" Grid.Column="2" Grid.Row="0" x:Name="pckRepetir" Margin="0,0,10,0" HorizontalTextAlignment="End" SelectedIndex="0">
                     <Picker.Items>
                         <x:String>Nunca</x:String>
                         <x:String>Todos los días</x:String>
@@ -101,7 +101,7 @@
                 </Grid.ColumnDefinitions>
                 <Frame Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="1" BackgroundColor="black" BorderColor="white" CornerRadius="10"></Frame>
                 <Label Text="Aviso" FontSize="20" TextColor="white" Grid.Column="0" Grid.Row="0" VerticalOptions="Center" Margin="10,0,0,0"></Label>
-                <Picker TextColor="White" Grid.Column="2" Grid.Row="0" x:Name="pckNuevoEvento" Margin="0,0,10,0" HorizontalTextAlignment="End" SelectedIndex="0">
+                <Picker TextColor="White" Grid.Column="2" Grid.Row="0" x:Name="pckAviso" Margin="0,0,10,0" HorizontalTextAlignment="End" SelectedIndex="0">
                     <Picker.Items>
                         <x:String>No</x:String>
                         <x:String>A la hora del evento</x:String>
