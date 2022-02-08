@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using AppCalendarToDoList.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -20,6 +20,26 @@ namespace AppCalendarToDoList.Pages
         {
             base.OnAppearing();
             entTituloEvento.Focus();
+        }
+
+        private void btnGuardarEvento_Clicked(object sender, EventArgs e)
+        {
+            if (verificar())
+            {
+                string titulo = entTituloEvento.Text;
+                DateTime diaHoraInicio = new DateTime(2022, 1, 19, tpEmpieza.Time.Hours, tpEmpieza.Time.Minutes, 0);
+                DateTime diaHoraFinal = new DateTime(2022, 1, 19, tpTermina.Time.Hours, tpTermina.Time.Minutes, 0);
+
+                EventoViewModel nuevoEvento = new EventoViewModel();
+                
+            
+            
+            }
+        }
+
+        private bool verificar()
+        {
+            return entTituloEvento.Text != "";
         }
     }
 }

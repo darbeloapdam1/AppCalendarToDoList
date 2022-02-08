@@ -56,9 +56,9 @@
                 <Label Text="Todo el dia" FontSize="20" Grid.Column="0" Grid.Row="0" Margin="10,10,0,0"></Label>
                 <Switch x:Name="swtTodoDia" IsToggled="False" OnColor="green" ThumbColor="white" HorizontalOptions="End" Margin="0,0,20,0" Grid.Row="0" Grid.Column="2"></Switch>
                 <Label Text="Empieza" FontSize="20" Margin="10,10,0,0" Grid.Column="0" Grid.Row="1"></Label>
-                <TimePicker TextColor="white" HorizontalOptions="End" Margin=" 0,0,20,0" Grid.Column="2" Grid.Row="1"></TimePicker>
+                <TimePicker x:Name="tpEmpieza" TextColor="white" HorizontalOptions="End" Margin=" 0,0,20,0" Grid.Column="2" Grid.Row="1"></TimePicker>
                 <Label Text="Termina" FontSize="20" Margin="10,10,0,0" Grid.Column="0" Grid.Row="2"></Label>
-                <TimePicker TextColor="white" HorizontalOptions="End" Margin=" 0,0,20,0" Grid.Column="2" Grid.Row="2"></TimePicker>
+                <TimePicker x:Name="tpTermina" TextColor="white" HorizontalOptions="End" Margin=" 0,0,20,0" Grid.Column="2" Grid.Row="2"></TimePicker>
             </Grid>
 
             <!--Grid para la opción de repetir-->
@@ -121,8 +121,8 @@
                     <Image Source="" BackgroundColor="white" HorizontalOptions="End"></Image>
                 </StackLayout>-->
             </Grid>
-            <Button CornerRadius="20" Text="Guardar" BackgroundColor="Black" TextColor="white" BorderColor="white" BorderWidth="1"
-                        Margin="0,0,0,0" Grid.Row="6" Grid.Column="1"></Button>
+            <Button Clicked="btnGuardarEvento_Clicked" CornerRadius="20" Text="Guardar" BackgroundColor="Black" TextColor="white" BorderColor="white" BorderWidth="1"
+                        Margin="0,0,0,0" Grid.Row="6" Grid.Column="1" x:Name="btnGuardarEvento"></Button>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
