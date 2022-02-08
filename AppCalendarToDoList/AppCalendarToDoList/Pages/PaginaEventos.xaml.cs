@@ -19,7 +19,7 @@ namespace AppCalendarToDoList.Pages
             InitializeComponent();
             pckAnio.ItemsSource = getAniosPck();
             pckMes.SelectedIndex = 0;
-            pckAnio.SelectedIndex = 0;
+            pckAnio.SelectedIndex = 22;
             actualizarPagina();
         }
 
@@ -30,8 +30,9 @@ namespace AppCalendarToDoList.Pages
 
         public void actualizarPagina()
         {
+            int prueba = pckAnio.SelectedIndex;
             int mesNum = getMesNum(pckMes.Items[pckMes.SelectedIndex]);
-            int anio = int.Parse(pckAnio.Items[pckAnio.SelectedIndex]);
+            int anio = 2022;//int.Parse(pckAnio.Items[pckAnio.SelectedIndex]);
             DateTime fecha = new DateTime(anio, mesNum,1);
             List<DiaEvento> diasMes = getDiasMes(fecha);
             addDiasGrid(diasMes);
@@ -105,7 +106,12 @@ namespace AppCalendarToDoList.Pages
 
         private void addDiasGrid(List<DiaEvento> dias)
         {
-            grdEventos.RowDefinitions.Add(new RowDefinition { Height = new GridLength(40) });
+            RowDefinitionCollection filas = grdEventos.RowDefinitions;
+            for(int i = 0; i < filas.Count; i++)
+            {
+                grdEventos.RowDefinitions.RemoveAt(0);
+            }
+            grdEventos.RowDefinitions.Add(new RowDefinition { Height = new GridLength(10) });
             for (int i = 0; i < dias.Count; i++)
             {
                 int columna = 0;
