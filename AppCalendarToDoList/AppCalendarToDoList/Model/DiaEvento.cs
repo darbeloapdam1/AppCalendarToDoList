@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
 using Xamarin.Forms.Shapes;
+using AppCalendarToDoList.Pages;
 
 namespace AppCalendarToDoList.Model
 {
@@ -192,6 +193,15 @@ namespace AppCalendarToDoList.Model
                 Text = NumTareas,
                 Margin = new Thickness(60, 45, 0, 0)
             }, 0, 1);
+
+            TapGestureRecognizer tapEventoDetales = new TapGestureRecognizer();
+            tapEventoDetales.Tapped += (object sender, EventArgs e) =>
+            {
+                Page paginaNuevoEvento = new PaginaEventoDetalles();
+                
+            };
+
+            grid.GestureRecognizers.Add(tapEventoDetales);
 
             return grid;
         }
