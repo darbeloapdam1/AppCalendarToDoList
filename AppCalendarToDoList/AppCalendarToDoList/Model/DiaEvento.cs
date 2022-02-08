@@ -116,7 +116,7 @@ namespace AppCalendarToDoList.Model
             {
                 if(tareas == null)
                 {
-                    return "Ninguna tareaa";
+                    return "Ninguna tarea";
                 }
                 else
                 {
