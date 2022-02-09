@@ -159,7 +159,8 @@ namespace AppCalendarToDoList.Model
                 CornerRadius = 10,
                 BackgroundColor = Color.Transparent,
                 BorderColor = Color.White,
-            }, 0, 0);
+            }, 0,1,0,2);
+            
 
             grid.Children.Add(new Label
             {
