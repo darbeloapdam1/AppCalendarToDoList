@@ -18,7 +18,7 @@ namespace AppCalendarToDoList.Model
         public DiaEvento(DateTime fecha)
         {
             this.fecha = fecha;
-            this.dia = "" + fecha.Day;
+            this.dia = fecha.Day.ToString("D2");
             this.diaSemana = fecha.DayOfWeek.ToString();
             NumEventos = getNumEventos();
             NumTareas = getNumTareas();
@@ -172,15 +172,15 @@ namespace AppCalendarToDoList.Model
             grid.Children.Add(new Label
             {
                 Text = dia,
-                FontSize = 32,
+                FontSize = 30,
                 TextColor = Color.White,
-                Margin = new Thickness(10, 0, 100, 0)
-            }, 1, 0);
+                Margin = new Thickness(20,0,120,0)
+            }, 0, 1);
 
             grid.Children.Add(new Line
             {
                 BackgroundColor = Color.Red,
-                Margin = new Thickness(35, 10, 124, 10)
+                Margin = new Thickness(45, 10, 114, 10)
             }, 0, 1);
 
             grid.Children.Add(new Label
