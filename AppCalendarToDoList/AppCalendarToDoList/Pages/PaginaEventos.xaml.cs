@@ -13,6 +13,8 @@ namespace AppCalendarToDoList.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PaginaEventos : ContentPage
     {
+        public List<DiaEvento> eventosDia = new List<DiaEvento>();
+        public List<DateTime> diasMes = new List<DateTime>();
         public PaginaEventos()
         {
             InitializeComponent();
@@ -29,24 +31,31 @@ namespace AppCalendarToDoList.Pages
 
         public void actualizarPagina()
         {
-            int prueba = pckAnio.SelectedIndex;
             int mesNum = getMesNum(pckMes.Items[pckMes.SelectedIndex]);
             int anio = 2022;//int.Parse(pckAnio.Items[pckAnio.SelectedIndex]);
-            DateTime fecha = new DateTime(anio, mesNum,1);
-            List<DiaEvento> diasMes = getDiasMes(fecha);
-            addDiasGrid(diasMes);
+            diasMes = getDiasMes(new DateTime(anio, mesNum, 1));
+            eventosDia = crearEventosDias();
+            addDiasGrid(diasMes,eventosDia);
         }
 
-        private List<DiaEvento> getDiasMes(DateTime fecha)
+        private List<DiaEvento> crearEventosDias()
         {
-            DateTime fechaDia = fecha;
-            List<DiaEvento> lista = new List<DiaEvento>();
+            List<DiaEvento> dias = new List<DiaEvento>();
+            foreach(DateTime fecha in diasMes)
+            {
+                dias.Add(new DiaEvento(fecha));
+            }
+            return dias;
+        }
+
+        private List<DateTime> getDiasMes(DateTime fecha)
+        {
+            List<DateTime> fechaDia = new List<DateTime>();
             for(int i = 0; i < DateTime.DaysInMonth(fecha.Year, fecha.Month); i++)
             {
-                lista.Add(new DiaEvento(fechaDia));
-                fechaDia = fechaDia.AddDays(1);
+                fechaDia.Add(new DateTime(fecha.Year, fecha.Month, i + 1));
             }
-            return lista;
+            return fechaDia;
         }
 
         public static int getMesNum(string mes)
@@ -103,10 +112,11 @@ namespace AppCalendarToDoList.Pages
             return lista;
         }
 
-        private void addDiasGrid(List<DiaEvento> dias)
+        private void addDiasGrid(List<DateTime> diasMes,List<DiaEvento> eventosDia)
         {
+            clearGrid();
             grdEventos.RowDefinitions.Add(new RowDefinition { Height = new GridLength(40) });
-            for (int i = 0; i < dias.Count; i++)
+            for (int i = 0; i < diasMes.Count; i++)
             {
                 int columna = 0;
                 if(i % 2 == 0 && i != 0)
@@ -121,11 +131,79 @@ namespace AppCalendarToDoList.Pages
                         columna = 2;
                     }                   
                 }
-                grdEventos.Children.Add(dias[i].Grid, columna, grdEventos.RowDefinitions.Count);
+                int fila = grdEventos.RowDefinitions.Count;
+                grdEventos.Children.Add(crearGridEvento(diasMes[i], eventosDia[i]), columna, fila);
                 
             }
         }
 
+        private Grid crearGridEvento(DateTime fecha, DiaEvento diaEvento)
+        {
+            Grid grid = new Grid
+            {
+                RowDefinitions =
+                {
+                    new RowDefinition { Height = new GridLength(30) },
+                    new RowDefinition { Height = new GridLength(80) }
+                },
+                ColumnDefinitions =
+                {
+                    new ColumnDefinition { Width = new GridLength(160) }
+                }
+            };
+
+            grid.Children.Add(new Frame
+            {
+                CornerRadius = 10,
+                BackgroundColor = Color.Transparent,
+                BorderColor = Color.White,
+            }, 0, 1, 0, 2);
+
+
+            grid.Children.Add(new Label
+            {
+                Text = fecha.DayOfWeek.ToString(),
+                FontSize = 24,
+                Margin = new Thickness(10, 0, 0, 0)
+            }, 0, 0);
+
+            grid.Children.Add(new Label
+            {
+                Text = fecha.Day.ToString(),
+                FontSize = 30,
+                TextColor = Color.White,
+                Margin = new Thickness(20, 0, 120, 0)
+            }, 0, 1);
+
+            grid.Children.Add(new Line
+            {
+                BackgroundColor = Color.Red,
+                Margin = new Thickness(45, 10, 114, 10)
+            }, 0, 1);
+
+            grid.Children.Add(new Label
+            {
+                Text = diaEvento.NumEventos,
+                Margin = new Thickness(60, 15, 0, 0)
+            }, 0, 1);
+
+            grid.Children.Add(new Label
+            {
+                Text = diaEvento.NumTareas,
+                Margin = new Thickness(60, 45, 0, 0)
+            }, 0, 1);
+
+            TapGestureRecognizer tapEventoDetales = new TapGestureRecognizer();
+            tapEventoDetales.Tapped += (object sender, EventArgs e) =>
+            {
+                Page paginaNuevoEvento = new PaginaEventoDetalles();
+
+            };
+
+            grid.GestureRecognizers.Add(tapEventoDetales);
+
+            return grid;
+        }
         private void clearGrid()
         {
             RowDefinitionCollection filas = grdEventos.RowDefinitions;

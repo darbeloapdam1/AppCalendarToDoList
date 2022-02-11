@@ -13,7 +13,6 @@ namespace AppCalendarToDoList.Model
         DateTime fecha;
         List<EventoViewModel> eventos;
         List<TareaViewModel> tareas;
-        Grid grid;
         string diaSemana, dia, mes, numEventos, numTareas;
         public DiaEvento(DateTime fecha)
         {
@@ -22,7 +21,6 @@ namespace AppCalendarToDoList.Model
             this.diaSemana = fecha.DayOfWeek.ToString();
             NumEventos = getNumEventos();
             NumTareas = getNumTareas();
-            Grid = crearGridDia();
         }
 
         public DateTime Fecha
@@ -59,15 +57,6 @@ namespace AppCalendarToDoList.Model
         {
             get { return mes; }
             set { mes = value; }
-        }
-
-        public Grid Grid
-        {
-            get { return grid; }
-            set
-            {
-                this.grid = value;
-            }
         }
 
         public string NumEventos
@@ -107,6 +96,7 @@ namespace AppCalendarToDoList.Model
                 }
             }catch(Exception ex)
             {
+                Console.WriteLine(ex);
                 return "Ningún evento";
             }
         }
@@ -135,79 +125,10 @@ namespace AppCalendarToDoList.Model
                 }
             }catch(Exception ex)
             {
+                Console.WriteLine(ex);
                 return "Ninguna tarea";
             }
-        }
-
-        private Grid crearGridDia()
-        {
-            Grid grid = new Grid
-            {
-                RowDefinitions =
-                {
-                    new RowDefinition { Height = new GridLength(30) },
-                    new RowDefinition { Height = new GridLength(80) }
-                },
-                ColumnDefinitions =
-                {
-                    new ColumnDefinition { Width = new GridLength(160) }
-                }
-            };
-
-            grid.Children.Add(new Frame
-            {
-                CornerRadius = 10,
-                BackgroundColor = Color.Transparent,
-                BorderColor = Color.White,
-            }, 0,1,0,2);
-            
-
-            grid.Children.Add(new Label
-            {
-                Text = diaSemana,
-                FontSize = 24,
-                Margin = new Thickness(10, 0, 0, 0)
-            }, 0, 0);
-
-            grid.Children.Add(new Label
-            {
-                Text = dia,
-                FontSize = 30,
-                TextColor = Color.White,
-                Margin = new Thickness(20,0,120,0)
-            }, 0, 1);
-
-            grid.Children.Add(new Line
-            {
-                BackgroundColor = Color.Red,
-                Margin = new Thickness(45, 10, 114, 10)
-            }, 0, 1);
-
-            grid.Children.Add(new Label
-            {
-                Text = NumEventos,
-                Margin = new Thickness(60, 15, 0, 0)
-            }, 0, 1);
-
-            grid.Children.Add(new Label
-            {
-                Text = NumTareas,
-                Margin = new Thickness(60, 45, 0, 0)
-            }, 0, 1);
-
-            TapGestureRecognizer tapEventoDetales = new TapGestureRecognizer();
-            tapEventoDetales.Tapped += (object sender, EventArgs e) =>
-            {
-                Page paginaNuevoEvento = new PaginaEventoDetalles();
-                
-            };
-
-            grid.GestureRecognizers.Add(tapEventoDetales);
-
-            return grid;
-        }
-
-        
+        }       
 
     }
 }
