@@ -114,7 +114,7 @@ namespace AppCalendarToDoList.Pages
 
         private void addDiasGrid(List<DateTime> diasMes,List<DiaEvento> eventosDia)
         {
-            clearGrid();
+            //clearGrid();
             grdEventos.RowDefinitions.Add(new RowDefinition { Height = new GridLength(40) });
             for (int i = 0; i < diasMes.Count; i++)
             {
@@ -169,7 +169,7 @@ namespace AppCalendarToDoList.Pages
 
             grid.Children.Add(new Label
             {
-                Text = fecha.Day.ToString(),
+                Text = fecha.Day.ToString("D2"),
                 FontSize = 30,
                 TextColor = Color.White,
                 Margin = new Thickness(20, 0, 120, 0)
