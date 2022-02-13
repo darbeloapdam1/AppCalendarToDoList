@@ -133,7 +133,7 @@ namespace AppCalendarToDoList.Pages
                 }
                 int fila = grdEventos.RowDefinitions.Count;
                 grdEventos.Children.Add(crearGridEvento(diasMes[i], eventosDia[i]), columna, fila);
-                
+                grdEventos.RowDefinitions.Add(new RowDefinition { Height = new GridLength(10) });
             }
         }
 

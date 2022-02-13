@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using AppCalendarToDoList.Pages;
+using AppCalendarToDoList.ViewModels;
 
 namespace AppCalendarToDoList.Pages
 {
@@ -22,12 +23,8 @@ namespace AppCalendarToDoList.Pages
 
         private void actualizarTareas()
         {
-            foreach(Tarea tarea in getTareas())
-            {
-                grdTareas.RowDefinitions.Add(new RowDefinition { Height = new GridLength(180) });
-                int numFila = grdTareas.RowDefinitions.Count;
-                //grdTareas.Children.Add(tarea,0,numFila);
-            }
+            List<TareaViewModel> tareas = new List<TareaViewModel>();
+            
         }
 
         private List<Tarea> getTareas()
@@ -39,8 +36,7 @@ namespace AppCalendarToDoList.Pages
         private void btnNuevaTarea_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new PaginaNuevaTarea());
-            //Page paginaNuevaTarea = new PaginaNuevaTarea();
-            //paginaNuevaTarea
         }
+
     }
 }
