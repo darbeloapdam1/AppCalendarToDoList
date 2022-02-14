@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Shapes;
 using Xamarin.Forms.Xaml;
+using AppCalendarToDoList.ViewModels;
 
 namespace AppCalendarToDoList.Pages
 {
@@ -15,9 +16,13 @@ namespace AppCalendarToDoList.Pages
     {
         public List<DiaEvento> eventosDia = new List<DiaEvento>();
         public List<DateTime> diasMes = new List<DateTime>();
+        public EventoViewModel vm { get; set; }
+
         public PaginaEventos()
         {
             InitializeComponent();
+            vm = new EventoViewModel();
+            this.BindingContext = vm;
             pckAnio.ItemsSource = getAniosPck();
             pckMes.SelectedIndex = 0;
             pckAnio.SelectedIndex = 22;
@@ -196,7 +201,12 @@ namespace AppCalendarToDoList.Pages
             TapGestureRecognizer tapEventoDetales = new TapGestureRecognizer();
             tapEventoDetales.Tapped += (object sender, EventArgs e) =>
             {
-                Page paginaNuevoEvento = new PaginaEventoDetalles();
+                //prueba
+                //Evento newEvento= new Evento();
+                //newEvento.Dia = vm.DiaHoraFinal
+                //newEvento.Completado = vm.Completado.
+                //https://github.com/SyncfusionExamples/selection-navigation-listview-xamarin
+                Page paginaNuevoEvento = new PaginaEventoDetalles(newEvnto);
 
             };
 

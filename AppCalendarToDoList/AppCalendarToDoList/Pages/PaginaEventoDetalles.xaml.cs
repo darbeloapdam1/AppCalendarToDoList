@@ -16,5 +16,10 @@ namespace AppCalendarToDoList.Pages
         {
             InitializeComponent();
         }
+        public PaginaEventoDetalles(Evento nuevo)
+        {
+            InitializeComponent();
+            this.BindingContext = nuevo;
+        }
     }
 }

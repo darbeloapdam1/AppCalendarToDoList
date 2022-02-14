@@ -11,8 +11,8 @@ namespace AppCalendarToDoList.Model
     public class DiaEvento
     {
         DateTime fecha;
-        List<EventoViewModel> eventos;
-        List<TareaViewModel> tareas;
+        List<Evento> eventos;
+        List<Tarea> tareas;
         string diaSemana, dia, mes, numEventos, numTareas;
         public DiaEvento(DateTime fecha)
         {
