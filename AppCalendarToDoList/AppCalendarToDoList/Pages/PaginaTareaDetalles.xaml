@@ -65,7 +65,7 @@
                 <Frame BorderColor="white" CornerRadius="10" BackgroundColor="Transparent" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2"></Frame>
                 <Label Text="Objetivos" FontSize="18" TextColor="white" Grid.Column="0" Grid.Row="0" VerticalOptions="Center" Margin="10,0,0,0"></Label>
                 <Label x:Name="lblProgresoTarea" Text="50%" FontSize="18" TextColor="white" Grid.Column="0" Grid.Row="0" VerticalOptions="Center" Margin="280,0,0,0"></Label>
-                <ImageButton Clicked="ImageButton_Clicked" BackgroundColor="Red" Grid.Column="1" Grid.Row="0" Margin="10"></ImageButton>
+                <ImageButton x:Name="btnAnadirObjetivo" Clicked="ImageButton_Clicked" Source="btnAnadir.png" BackgroundColor="Transparent" Grid.Column="1" Grid.Row="0" Margin="10"></ImageButton>
                 <!--<ScrollView x:Name="scvObjetivos" BackgroundColor="red" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Margin="10,0,10,10">
                     <StackLayout>
                         <BindableLayout.ItemTemplate>
@@ -80,7 +80,7 @@
                     </Grid.ColumnDefinitions>
                     <Frame BorderColor="white" CornerRadius="10" BackgroundColor="Transparent" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"></Frame>
                     <Label Text="Nuevo objetivo" TextColor="white" FontSize="18" Margin="10,0,0,0" Grid.Column="0" Grid.Row="0"></Label>
-                    <ImageButton BackgroundColor="red" Margin="4,4,5,4" Grid.Column="1" Grid.Row="0"></ImageButton>
+                    <ImageButton x:Name="btnEliminarObjetivo" Source="equis.png" BackgroundColor="Transparent" Margin="4,4,5,4" Grid.Column="1" Grid.Row="0"></ImageButton>
                 </Grid>
                 <!--</DataTemplate>
                         </BindableLayout.ItemTemplate>
@@ -91,7 +91,9 @@
             <!--Label y StackLayout para la prioridad-->
             <Label Text="Prioridad" FontSize="18" TextColor="white" Grid.Row="7" Grid.Column="1"></Label>
             <StackLayout BackgroundColor="red" Margin="280,0,14,0" Grid.Row="7" Grid.Column="1">
-
+                <ImageButton x:Name="imbPrioridadDefault" WidthRequest="20" HeightRequest="20" Source="prioridadDefault.png" Margin="5,5,0,5"></ImageButton>
+                <ImageButton x:Name="imbPrioridadBaja" WidthRequest="20" HeightRequest="20" Source="prioridadBaja.png" Margin="5,5,0,5"></ImageButton>
+                <ImageButton x:Name="imbPrioridadAlta" WidthRequest="20" HeightRequest="20" Source="prioridadAlta.png" Margin="5,5,0,5"></ImageButton>
             </StackLayout>
 
             <!--Label y DatePicker para la fecha de inicio-->

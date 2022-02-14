@@ -16,10 +16,61 @@
                     <ColumnDefinition Width="380"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <ScrollView x:Name="scvTareas" Grid.Row="1" Grid.Column="1" Margin="0,0,0,10">
-                    <Grid x:Name="grdTareas" BackgroundColor="red">
+                <StackLayout x:Name="sctTareas">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <Grid x:Name="grdTareas" BackgroundColor="red">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40"></RowDefinition>
+                                <RowDefinition Height="40"></RowDefinition>
+                                <RowDefinition Height="100"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="386"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
 
-                    </Grid>
-                </ScrollView>
+
+                            <Frame BorderColor="White" BackgroundColor="Black"  CornerRadius="10" Margin="0,0,15,0"
+                   Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="3"></Frame>
+
+                            <!--Grid para el header-->
+                            <Grid Grid.Row="0" Grid.Column="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30"></ColumnDefinition>
+                                    <ColumnDefinition Width="340"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="40"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Frame BorderColor="White" BackgroundColor="Black"  CornerRadius="10" Grid.Column="0" 
+                       Grid.ColumnSpan="2" Grid.Row="0"></Frame>
+                                <!--<Ellipse Fill="red" WidthRequest="5" HeightRequest="5" Grid.Column="0" Grid.Row="0"
+                         Margin="0,0,0,0"></Ellipse>-->
+                                <Frame x:Name="frmTituloTarea" BorderColor="White" BackgroundColor="Green" CornerRadius="10" 
+                       Grid.Column="1" Grid.Row="0"></Frame>
+                                <Label x:Name="lblTitulo" Text="Presentación producto" FontSize="24" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"
+                       Margin="10,0,0,0" Grid.Column="1" Grid.Row="0"></Label>
+                                <Label x:Name="lblProgreso" Text="63%" FontSize="24" HorizontalTextAlignment="End" VerticalTextAlignment="Center"
+                       Margin="0,0,10,0" Grid.Column="1" Grid.Row="0"></Label>
+                            </Grid>
+
+                            <!--Grid para el contenido de la tarea-->
+                            <Grid x:Name="grdObjetivos" Grid.Column="0" Grid.Row="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="40"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="380"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <CheckBox x:Name="chkObjetivoCompletado" Color="White" Margin="10,0,0,0"></CheckBox>
+                                <Label x:Name="lblTituloObjetivo" Text="Investigación del producto" FontSize="24" 
+                       VerticalTextAlignment="Center" Margin="50,0,0,0"></Label>
+                            </Grid>
+                        </Grid>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+                </StackLayout>
+            </ScrollView>
                 <Button x:Name="btnNuevaTarea" Text="Nueva tarea" BorderColor="white" BorderWidth="1" BackgroundColor="Transparent" TextColor="white" CornerRadius="20" 
                     Clicked="btnNuevaTarea_Clicked" Grid.Row="2" Grid.Column="1"></Button>
             </Grid>
