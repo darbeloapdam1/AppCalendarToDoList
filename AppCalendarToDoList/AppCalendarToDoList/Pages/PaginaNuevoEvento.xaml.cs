@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AppCalendarToDoList.ViewModels;
+using AppCalendarToDoList.Model;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -30,9 +30,8 @@ namespace AppCalendarToDoList.Pages
                 DateTime diaHoraInicio = new DateTime(2022, 1, 19, tpEmpieza.Time.Hours, tpEmpieza.Time.Minutes, 0);
                 DateTime diaHoraFinal = new DateTime(2022, 1, 19, tpTermina.Time.Hours, tpTermina.Time.Minutes, 0);
 
-                EventoViewModel nuevoEvento = new EventoViewModel();
-                
-            
+                AppCalendarToDoList.Model.Evento nuevoEvento = new AppCalendarToDoList.Model.Evento(titulo, diaHoraInicio, diaHoraFinal, false);
+
             
             }
         }

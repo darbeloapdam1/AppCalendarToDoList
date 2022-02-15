@@ -14,14 +14,14 @@ namespace AppCalendarToDoList.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PaginaEventos : ContentPage
     {
-        public List<DiaEvento> eventosDia = new List<DiaEvento>();
+        public List<DiaEventoViewModel> eventosDia = new List<DiaEventoViewModel>();
         public List<DateTime> diasMes = new List<DateTime>();
-        public EventoViewModel vm { get; set; }
+        public DiaEventoViewModel vm { get; set; }
 
         public PaginaEventos()
         {
             InitializeComponent();
-            vm = new EventoViewModel();
+            vm = new DiaEventoViewModel();
             this.BindingContext = vm;
             pckAnio.ItemsSource = getAniosPck();
             pckMes.SelectedIndex = 0;
@@ -43,12 +43,12 @@ namespace AppCalendarToDoList.Pages
             addDiasGrid(diasMes,eventosDia);
         }
 
-        private List<DiaEvento> crearEventosDias()
+        private List<DiaEventoViewModel> crearEventosDias()
         {
-            List<DiaEvento> dias = new List<DiaEvento>();
+            List<DiaEventoViewModel> dias = new List<DiaEventoViewModel>();
             foreach(DateTime fecha in diasMes)
             {
-                dias.Add(new DiaEvento(fecha));
+                dias.Add(new DiaEventoViewModel(fecha));
             }
             return dias;
         }
@@ -117,7 +117,7 @@ namespace AppCalendarToDoList.Pages
             return lista;
         }
 
-        private void addDiasGrid(List<DateTime> diasMes,List<DiaEvento> eventosDia)
+        private void addDiasGrid(List<DateTime> diasMes,List<DiaEventoViewModel> eventosDia)
         {
             //clearGrid();
             grdEventos.RowDefinitions.Add(new RowDefinition { Height = new GridLength(40) });
@@ -142,7 +142,7 @@ namespace AppCalendarToDoList.Pages
             }
         }
 
-        private Grid crearGridEvento(DateTime fecha, DiaEvento diaEvento)
+        private Grid crearGridEvento(DateTime fecha, DiaEventoViewModel diaEvento)
         {
             Grid grid = new Grid
             {
@@ -206,7 +206,7 @@ namespace AppCalendarToDoList.Pages
                 //newEvento.Dia = vm.DiaHoraFinal
                 //newEvento.Completado = vm.Completado.
                 //https://github.com/SyncfusionExamples/selection-navigation-listview-xamarin
-                Page paginaNuevoEvento = new PaginaEventoDetalles(newEvnto);
+                
 
             };
 

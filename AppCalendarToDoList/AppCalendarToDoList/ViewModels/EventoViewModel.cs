@@ -121,5 +121,6 @@ namespace AppCalendarToDoList.ViewModels
             this.Repetir = evento.repetir;
             this.Aviso = evento.aviso;
         }
+
     }
 }

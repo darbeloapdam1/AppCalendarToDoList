@@ -18,20 +18,15 @@ namespace AppCalendarToDoList.Model
         public DateTime diaHoraFinal { get; set; }
         [NotNull]
         public bool completado { get; set; }
-        [NotNull]
-        public int repetir { get; set; }
-        [NotNull]
-        public int aviso { get; set; }
+
 
         public Evento() { }
-        public Evento(string titulo, DateTime diaHoraInicio, DateTime diaHoraFinal, bool completado, List<int> avisoRepetir)
+        public Evento(string titulo, DateTime diaHoraInicio, DateTime diaHoraFinal, bool completado)
         {
             this.titulo = titulo;
             this.diaHoraInicio = diaHoraInicio;
             this.diaHoraFinal = diaHoraFinal;
             this.completado = completado;
-            this.repetir = avisoRepetir[1];
-            this.aviso = avisoRepetir[0];
         }
 
         public Evento(EventoViewModel eventVM)
@@ -40,8 +35,6 @@ namespace AppCalendarToDoList.Model
             this.diaHoraFinal = eventVM.DiaHoraFinal;
             this.diaHoraInicio = eventVM.DiaHoraInicio;
             this.completado = eventVM.Completado;
-            this.repetir = eventVM.Repetir;
-            this.aviso = eventVM.Aviso;
         }
 
     }

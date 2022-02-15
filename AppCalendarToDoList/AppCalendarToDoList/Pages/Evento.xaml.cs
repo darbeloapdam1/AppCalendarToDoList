@@ -15,11 +15,24 @@ namespace AppCalendarToDoList.Pages
     public partial class Evento : ContentPage
     {
         EventoViewModel ViewModel;
+        private string titulo;
+        private DateTime diaHoraInicio;
+        private DateTime diaHoraFinal;
+        private bool v;
+
         public Evento()
         {
             InitializeComponent();
             ViewModel = new EventoViewModel();
             BindingContext = ViewModel;
 		}
-	}
+
+        public Evento(string titulo, DateTime diaHoraInicio, DateTime diaHoraFinal, bool v)
+        {
+            this.titulo = titulo;
+            this.diaHoraInicio = diaHoraInicio;
+            this.diaHoraFinal = diaHoraFinal;
+            this.v = v;
+        }
+    }
 }
