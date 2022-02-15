@@ -41,13 +41,62 @@
 
             <!--StackLayout para elegir el color de la tarea-->
             <StackLayout Orientation="Horizontal" Grid.Column="1" Grid.Row="4">
-                <BoxView x:Name="bxvRosa" HeightRequest="20" WidthRequest="30" Color="Pink" CornerRadius="10" Margin="0,0,0,0"></BoxView>
+                <RadioButton GroupName="Colores" x:Name="rbRosa" IsChecked="True" HeightRequest="20" WidthRequest="30" CornerRadius="10">
+                    <RadioButton.ControlTemplate>
+                        <ControlTemplate>
+                            <Rectangle Fill="Pink"/>
+                        </ControlTemplate>
+                    </RadioButton.ControlTemplate>
+                </RadioButton>
+                <RadioButton GroupName="Colores" x:Name="rbVerde" IsChecked="True" HeightRequest="20" WidthRequest="30" CornerRadius="10">
+                    <RadioButton.ControlTemplate>
+                        <ControlTemplate>
+                            <Rectangle Fill="Green"/>
+                        </ControlTemplate>
+                    </RadioButton.ControlTemplate>
+                </RadioButton>
+                <RadioButton GroupName="Colores" x:Name="rbRojo" IsChecked="True" HeightRequest="20" WidthRequest="30" CornerRadius="10">
+                    <RadioButton.ControlTemplate>
+                        <ControlTemplate>
+                            <Rectangle Fill="red"/>
+                        </ControlTemplate>
+                    </RadioButton.ControlTemplate>
+                </RadioButton>
+                <RadioButton GroupName="Colores" x:Name="rbMorado" IsChecked="True" HeightRequest="20" WidthRequest="30" CornerRadius="10">
+                    <RadioButton.ControlTemplate>
+                        <ControlTemplate>
+                            <Rectangle Fill="purple"/>
+                        </ControlTemplate>
+                    </RadioButton.ControlTemplate>
+                </RadioButton>
+                <RadioButton GroupName="Colores" x:Name="rbNaranja" IsChecked="True" HeightRequest="20" WidthRequest="30" CornerRadius="10">
+                    <RadioButton.ControlTemplate>
+                        <ControlTemplate>
+                            <Rectangle Fill="orange"/>
+                        </ControlTemplate>
+                    </RadioButton.ControlTemplate>
+                </RadioButton>
+                <RadioButton GroupName="Colores" x:Name="rbCeleste" IsChecked="True" HeightRequest="20" WidthRequest="30" CornerRadius="10">
+                    <RadioButton.ControlTemplate>
+                        <ControlTemplate>
+                            <Rectangle Fill="skyblue"/>
+                        </ControlTemplate>
+                    </RadioButton.ControlTemplate>
+                </RadioButton>
+                <RadioButton GroupName="Colores" x:Name="rbAzul" IsChecked="True" HeightRequest="20" WidthRequest="30" CornerRadius="10">
+                    <RadioButton.ControlTemplate>
+                        <ControlTemplate>
+                            <Rectangle Fill="blue"/>
+                        </ControlTemplate>
+                    </RadioButton.ControlTemplate>
+                </RadioButton>
+                <!--<BoxView x:Name="bxvRosa" HeightRequest="20" WidthRequest="30" Color="Pink" CornerRadius="10" Margin="0,0,0,0"></BoxView>
                 <BoxView x:Name="bxvVerde" HeightRequest="20" WidthRequest="30" Color="green" CornerRadius="10" Margin="20,0,0,0"></BoxView>
                 <BoxView x:Name="bxvRojo" HeightRequest="20" WidthRequest="30" Color="red" CornerRadius="10" Margin="20,0,0,0"></BoxView>
                 <BoxView x:Name="bxvMorado" HeightRequest="20" WidthRequest="30" Color="Purple" CornerRadius="10" Margin="20,0,0,0"></BoxView>
                 <BoxView x:Name="bxvNaranja" HeightRequest="20" WidthRequest="30" Color="Orange" CornerRadius="10" Margin="20,0,0,0"></BoxView>
                 <BoxView x:Name="bxvAzulClaro" HeightRequest="20" WidthRequest="30" Color="LightBlue" CornerRadius="10" Margin="20,0,0,0"></BoxView>
-                <BoxView x:Name="bxvAzul" HeightRequest="20" WidthRequest="30" Color="Blue" CornerRadius="10" Margin="20,0,0,0"></BoxView>
+                <BoxView x:Name="bxvAzul" HeightRequest="20" WidthRequest="30" Color="Blue" CornerRadius="10" Margin="20,0,0,0"></BoxView>-->
             </StackLayout>
 
             <!--Grid para los objetivos-->
@@ -89,9 +138,9 @@
             <!--Label y StackLayout para la prioridad-->
             <Label Text="Prioridad" FontSize="18" TextColor="white" Grid.Row="7" Grid.Column="1"></Label>
             <StackLayout Margin="280,0,20,0" Orientation="Horizontal" Grid.Row="7" Grid.Column="1">
-                <ImageButton x:Name="imbPrioridadDefault" WidthRequest="20" HeightRequest="20" Source="prioridadDefault.png" Margin="5,5,0,5"></ImageButton>
-                <ImageButton x:Name="imbPrioridadBaja" WidthRequest="20" HeightRequest="20" Source="prioridadBaja.png" Margin="5,5,0,5"></ImageButton>
-                <ImageButton x:Name="imbPrioridadAlta" WidthRequest="20" HeightRequest="20" Source="prioridadAlta.png" Margin="5,5,0,5"></ImageButton>
+                <RadioButton x:Name="rbBaja" GroupName="gnPrioridad" BackgroundColor="Red" MinimumHeightRequest="0" MinimumWidthRequest="0"/>
+                <RadioButton x:Name="rbDefault" GroupName="gnPrioridad" IsChecked="True" BackgroundColor="SkyBlue" MinimumHeightRequest="0" MinimumWidthRequest="0"/>
+                <RadioButton x:Name="rbAlta" GroupName="gnPrioridad" BackgroundColor="Lime" MinimumHeightRequest="0" MinimumWidthRequest="0"/>
             </StackLayout>
 
             <!--Label y DatePicker para la fecha de inicio-->
