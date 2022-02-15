@@ -1,8 +1,11 @@
 ﻿using AppCalendarToDoList.Model;
+using AppCalendarToDoList.Pages;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
+using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace AppCalendarToDoList.ViewModels
 {
@@ -13,10 +16,11 @@ namespace AppCalendarToDoList.ViewModels
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+        public Command<object> SelectionCommand { get; set; }
 
         DateTime _fecha;
-        List<Evento> _eventos;
-        List<Tarea> _tareas;
+        List<Model.Evento> _eventos;
+        List<Model.Tarea> _tareas;
         string _diaSemana;
         string _dia;
         string _mes;
@@ -31,7 +35,7 @@ namespace AppCalendarToDoList.ViewModels
             }
         }
 
-        public List<Evento> Eventos
+        public List<Model.Evento> Eventos
         {
             get { return _eventos; }
             set
@@ -41,7 +45,7 @@ namespace AppCalendarToDoList.ViewModels
             }
         }
 
-        public List<Tarea> Tareas
+        public List<Model.Tarea> Tareas
         {
             get { return _tareas; }
             set
@@ -158,11 +162,13 @@ namespace AppCalendarToDoList.ViewModels
             DiaSemana = dia.DiaSemana;
             Dia = dia.Dia;
             Mes = dia.Mes;
+            SelectionCommand = new Command<object>(OnItemSelected);
         }
 
         public DiaEventoViewModel(DateTime fecha)
         {
             Fecha = fecha;
+            SelectionCommand = new Command<object>(OnItemSelected); 
             getAtributesBd();
         }
 
@@ -170,5 +176,18 @@ namespace AppCalendarToDoList.ViewModels
         {
 
         }
+
+        private void OnItemSelected(object obj)
+        {
+            var selectedItem = (obj as Syncfusion.Grid.XForms.OnItemSelectd).AddedItems[0] as DiaEvento;
+            var newPage = new PaginaEventoDetalles();
+            newPage.BindingContext = selectedItem;
+            Device.BeginInvokeOnMainThread(async () =>
+            {
+                await Task.Delay(200);
+                await App.Current.MainPage.Navigation.PushAsync(newPage);
+            });
+        }
+
     }
 }

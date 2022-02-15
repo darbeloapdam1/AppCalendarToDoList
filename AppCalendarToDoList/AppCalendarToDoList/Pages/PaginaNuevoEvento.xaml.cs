@@ -12,9 +12,11 @@ namespace AppCalendarToDoList.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PaginaNuevoEvento : ContentPage
     {
+        public DateTime fecha;
         public PaginaNuevoEvento()
         {
             InitializeComponent();
+            
         }
         protected override void OnAppearing()
         {
@@ -27,12 +29,12 @@ namespace AppCalendarToDoList.Pages
             if (verificar())
             {
                 string titulo = entTituloEvento.Text;
-                DateTime diaHoraInicio = new DateTime(2022, 1, 19, tpEmpieza.Time.Hours, tpEmpieza.Time.Minutes, 0);
-                DateTime diaHoraFinal = new DateTime(2022, 1, 19, tpTermina.Time.Hours, tpTermina.Time.Minutes, 0);
+                DateTime diaHoraInicio = new DateTime(fecha.Year, fecha.Month, fecha.Day, tpEmpieza.Time.Hours, tpEmpieza.Time.Minutes, 0);
+                DateTime diaHoraFinal = new DateTime(fecha.Year, fecha.Month, fecha.Day, tpTermina.Time.Hours, tpTermina.Time.Minutes, 0);
 
-                AppCalendarToDoList.Model.Evento nuevoEvento = new AppCalendarToDoList.Model.Evento(titulo, diaHoraInicio, diaHoraFinal, false);
-
-            
+                Model.Evento nuevoEvento = new Model.Evento(titulo, diaHoraInicio, diaHoraFinal, false);
+                
+                Navigation.PopAsync();
             }
         }
 

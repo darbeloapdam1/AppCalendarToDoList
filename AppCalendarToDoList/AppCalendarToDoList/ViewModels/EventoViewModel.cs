@@ -118,8 +118,6 @@ namespace AppCalendarToDoList.ViewModels
             this.DiaHoraFinal = evento.diaHoraFinal;
             this.DiaHoraInicio = evento.diaHoraInicio;
             this.Completado = evento.completado;
-            this.Repetir = evento.repetir;
-            this.Aviso = evento.aviso;
         }
 
     }
