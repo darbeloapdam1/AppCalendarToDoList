@@ -33,7 +33,7 @@ namespace AppCalendarToDoList.Pages
                 DateTime diaHoraFinal = new DateTime(fecha.Year, fecha.Month, fecha.Day, tpTermina.Time.Hours, tpTermina.Time.Minutes, 0);
 
                 Model.Evento nuevoEvento = new Model.Evento(titulo, diaHoraInicio, diaHoraFinal, false);
-                
+                App.SQLiteDB.saveEventoAsync(nuevoEvento);
                 Navigation.PopAsync();
             }
         }

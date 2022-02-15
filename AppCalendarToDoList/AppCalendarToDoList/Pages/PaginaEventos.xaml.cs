@@ -198,22 +198,13 @@ namespace AppCalendarToDoList.Pages
                 Margin = new Thickness(60, 45, 0, 0)
             }, 0, 1);
 
-            TapGestureRecognizer tapEventoDetales = new TapGestureRecognizer();
-            tapEventoDetales.Tapped += (object sender, EventArgs e) =>
-            {
-                //prueba
-                //Evento newEvento= new Evento();
-                //newEvento.Dia = vm.DiaHoraFinal
-                //newEvento.Completado = vm.Completado.
-                //https://github.com/SyncfusionExamples/selection-navigation-listview-xamarin
-                
-
-            };
-
-            grid.GestureRecognizers.Add(tapEventoDetales);
-
+            var tapGestureRecognizer = new TapGestureRecognizer();
+            tapGestureRecognizer.SetBinding(TapGestureRecognizer.CommandProperty, "TappedCommandAction");
+            grid.GestureRecognizers.Add(tapGestureRecognizer);
             return grid;
         }
+
+
         private void clearGrid()
         {
             RowDefinitionCollection filas = grdEventos.RowDefinitions;

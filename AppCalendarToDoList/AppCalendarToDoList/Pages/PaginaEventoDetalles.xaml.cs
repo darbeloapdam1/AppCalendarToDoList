@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppCalendarToDoList.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,7 +17,7 @@ namespace AppCalendarToDoList.Pages
         {
             InitializeComponent();
         }
-        public PaginaEventoDetalles(Evento nuevo)
+        public PaginaEventoDetalles(DiaEventoViewModel nuevo)
         {
             InitializeComponent();
             this.BindingContext = nuevo;

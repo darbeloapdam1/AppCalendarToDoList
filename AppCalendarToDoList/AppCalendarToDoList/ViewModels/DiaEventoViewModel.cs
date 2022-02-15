@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace AppCalendarToDoList.ViewModels
@@ -16,7 +17,7 @@ namespace AppCalendarToDoList.ViewModels
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-        public Command<object> SelectionCommand { get; set; }
+        public Command TappedCommandAction { get; set; }
 
         DateTime _fecha;
         List<Model.Evento> _eventos;
@@ -162,31 +163,32 @@ namespace AppCalendarToDoList.ViewModels
             DiaSemana = dia.DiaSemana;
             Dia = dia.Dia;
             Mes = dia.Mes;
-            SelectionCommand = new Command<object>(OnItemSelected);
+            TappedCommandAction = new Command(tapped);
+            
         }
 
         public DiaEventoViewModel(DateTime fecha)
         {
             Fecha = fecha;
-            SelectionCommand = new Command<object>(OnItemSelected); 
+            TappedCommandAction = new Command(tapped);
             getAtributesBd();
         }
+
 
         private void getAtributesBd()
         {
 
         }
 
-        private void OnItemSelected(object obj)
+        public void tapped()
         {
-            var selectedItem = (obj as Syncfusion.Grid.XForms.OnItemSelectd).AddedItems[0] as DiaEvento;
-            var newPage = new PaginaEventoDetalles();
-            newPage.BindingContext = selectedItem;
+            Page newPage = new PaginaEventoDetalles(this);
             Device.BeginInvokeOnMainThread(async () =>
             {
                 await Task.Delay(200);
                 await App.Current.MainPage.Navigation.PushAsync(newPage);
             });
+
         }
 
     }

@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppCalendarToDoList.Pages.PaginaEventos"
+                          
          
               BackgroundColor="Black"
              NavigationPage.HasNavigationBar="False">
@@ -17,6 +18,11 @@
                 <ColumnDefinition Width="30"></ColumnDefinition>
                 <ColumnDefinition Width="380"></ColumnDefinition>
             </Grid.ColumnDefinitions>
+            
+            
+
+            
+            
             <ScrollView x:Name="scvEventos" Grid.Row="1" Grid.Column="1" Margin="0,0,0,10">
                 <Grid x:Name="grdEventos" BackgroundColor="Transparent">
                     <Grid.ColumnDefinitions>
