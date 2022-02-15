@@ -172,6 +172,13 @@ namespace AppCalendarToDoList.Pages
                 Margin = new Thickness(10, 0, 0, 0)
             }, 0, 0);
 
+            grid.Children.Add(new ImageButton
+            {
+                Source = "puntos.png",
+                BackgroundColor = Color.Transparent,
+                Margin = new Thickness(130,10,0,0)
+            });
+
             grid.Children.Add(new Label
             {
                 Text = fecha.Day.ToString("D2"),
@@ -197,6 +204,10 @@ namespace AppCalendarToDoList.Pages
                 Text = diaEvento.NumTareas,
                 Margin = new Thickness(60, 45, 0, 0)
             }, 0, 1);
+
+            var clickRecoginizer = new ClickGestureRecognizer();
+            clickRecoginizer.SetBinding(ClickGestureRecognizer.CommandProperty, "TappedCommandAction");
+            grid.GestureRecognizers.Add(clickRecoginizer);
 
             var tapGestureRecognizer = new TapGestureRecognizer();
             tapGestureRecognizer.SetBinding(TapGestureRecognizer.CommandProperty, "TappedCommandAction");
