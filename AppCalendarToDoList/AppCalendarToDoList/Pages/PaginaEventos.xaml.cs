@@ -8,6 +8,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Shapes;
 using Xamarin.Forms.Xaml;
 using AppCalendarToDoList.ViewModels;
+using System.Windows.Input;
 
 namespace AppCalendarToDoList.Pages
 {
@@ -171,6 +172,8 @@ namespace AppCalendarToDoList.Pages
                 }
             };
 
+            grid.BindingContext = diaEvento;
+
             grid.Children.Add(new Frame
             {
                 CornerRadius = 10,
@@ -192,9 +195,13 @@ namespace AppCalendarToDoList.Pages
                 Source = "puntos.png",
                 BackgroundColor = Color.Transparent,
                 Margin = new Thickness(130, 10, 0, 0),
-
+                
             };
-            imgButton.Clicked += (sender, args) => Xamarin.Forms.Application.Current.MainPage.Navigation.PushAsync(new PaginaEventoDetalles(diaEvento));
+
+            imgButton.SetBinding(ImageButton.CommandProperty, "TappedCommandAction");
+            
+            //(sender, args) => Xamarin.Forms.Application.Current.MainPage.Navigation.PushAsync(new PaginaEventoDetalles(diaEvento));
+            
 
             grid.Children.Add(imgButton);
 

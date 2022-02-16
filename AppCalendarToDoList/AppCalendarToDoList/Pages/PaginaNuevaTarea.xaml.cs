@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppCalendarToDoList.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,10 +13,12 @@ namespace AppCalendarToDoList.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PaginaNuevaTarea : ContentPage
     {
+
+        List<Objetivo> objetivos { get; set; }
         public PaginaNuevaTarea()
         {
             InitializeComponent();
-            
+            BindableLayout.SetItemsSource(sckObjetivos, objetivos);
         }
         
         protected override void OnAppearing()
@@ -92,6 +95,12 @@ namespace AppCalendarToDoList.Pages
             {
                 return 6;
             }
+        }
+
+        private async void btnAnadirObjetivo_Clicked(object sender, EventArgs e)
+        {
+            string resul = await DisplayPromptAsync("Nuevo objetivo", "Teclea el objetivo");
+            objetivos.Add(new Objetivo(resul, false));
         }
     }
 }

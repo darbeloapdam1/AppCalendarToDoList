@@ -112,27 +112,28 @@
                 <Frame BorderColor="white" CornerRadius="10" BackgroundColor="Transparent" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"></Frame>
                 <Frame BorderColor="white" CornerRadius="10" BackgroundColor="Transparent" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2"></Frame>
                 <Label Text="Objetivos" FontSize="18" TextColor="white" Grid.Column="0" Grid.Row="0" VerticalOptions="Center" Margin="10,0,0,0"></Label>
-                <ImageButton x:Name="btnAnadirObjetivo" Source="btnAnadir.png" BackgroundColor="Transparent" Grid.Column="1" Grid.Row="0" Margin="10"></ImageButton>
-                <!--<ScrollView x:Name="scvObjetivos" BackgroundColor="red" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Margin="10,0,10,10">
-                    <StackLayout>
+                <ImageButton x:Name="btnAnadirObjetivo" Source="btnAnadir.png" BackgroundColor="Transparent" Clicked="btnAnadirObjetivo_Clicked"
+                             Grid.Column="1" Grid.Row="0" Margin="10"></ImageButton>
+                <ScrollView BackgroundColor="red" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Margin="10,0,10,10">
+                    <StackLayout x:Name="sckObjetivos">
                         <BindableLayout.ItemTemplate>
-                            <DataTemplate>-->
-                <Grid BackgroundColor="Green" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Margin="10,0,10,10">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="25"></RowDefinition>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="300"></ColumnDefinition>
-                        <ColumnDefinition Width="40"></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <Frame BorderColor="white" CornerRadius="10" BackgroundColor="Transparent" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"></Frame>
-                    <Label Text="Nuevo objetivo" TextColor="white" FontSize="18" Margin="10,0,0,0" Grid.Column="0" Grid.Row="0"></Label>
-                    <ImageButton x:Name="btnEliminarObjetivo" Source="equis.png" BackgroundColor="Transparent" Margin="4,4,5,4" Grid.Column="1" Grid.Row="0"></ImageButton>
-                </Grid>
-                <!--</DataTemplate>
+                            <DataTemplate>
+                                <Grid BackgroundColor="Green" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Margin="10,0,10,10">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="25"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="300"></ColumnDefinition>
+                                        <ColumnDefinition Width="40"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Frame BorderColor="white" CornerRadius="10" BackgroundColor="Transparent" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"></Frame>
+                                    <Label Text="Nuevo objetivo" TextColor="white" FontSize="18" Margin="10,0,0,0" Grid.Column="0" Grid.Row="0"></Label>
+                                    <ImageButton x:Name="btnEliminarObjetivo" Source="equis.png" BackgroundColor="Transparent" Margin="4,4,5,4" Grid.Column="1" Grid.Row="0"></ImageButton>
+                                </Grid>
+                            </DataTemplate>
                         </BindableLayout.ItemTemplate>
                     </StackLayout>
-                </ScrollView>-->
+                </ScrollView>
             </Grid>
 
             <!--Label y StackLayout para la prioridad-->

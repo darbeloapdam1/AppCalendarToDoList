@@ -17,7 +17,7 @@ namespace AppCalendarToDoList.ViewModels
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-        public Command TappedCommandAction { get; set; }
+        public ICommand TappedCommandAction { get; set; }
 
         DateTime _fecha;
         List<Model.Evento> _eventos;
@@ -163,7 +163,7 @@ namespace AppCalendarToDoList.ViewModels
             DiaSemana = dia.DiaSemana;
             Dia = dia.Dia;
             Mes = dia.Mes;
-            TappedCommandAction = new Command(tapped);
+            TappedCommandAction = new Command(imgButtonClicked);
             
         }
 
@@ -173,7 +173,7 @@ namespace AppCalendarToDoList.ViewModels
             Dia = fecha.Day + "";
             DiaSemana = fecha.DayOfWeek.ToString();
             Mes = mes;
-            TappedCommandAction = new Command(tapped);
+            TappedCommandAction = new Command(imgButtonClicked);
             getAtributesBd();
         }
 
