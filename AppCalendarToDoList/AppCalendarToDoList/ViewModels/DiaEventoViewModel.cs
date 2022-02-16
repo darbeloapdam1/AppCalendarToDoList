@@ -167,9 +167,12 @@ namespace AppCalendarToDoList.ViewModels
             
         }
 
-        public DiaEventoViewModel(DateTime fecha)
+        public DiaEventoViewModel(DateTime fecha, string mes)
         {
             Fecha = fecha;
+            Dia = fecha.Day + "";
+            DiaSemana = fecha.DayOfWeek.ToString();
+            Mes = mes;
             TappedCommandAction = new Command(tapped);
             getAtributesBd();
         }
@@ -200,6 +203,7 @@ namespace AppCalendarToDoList.ViewModels
                 await App.Current.MainPage.Navigation.PushAsync(newPage);
             });
         }
+
 
     }
 }

@@ -32,7 +32,7 @@
                     </Grid.ColumnDefinitions>
                 </Grid>
             </ScrollView>
-            <Picker x:Name="pckMes" TextColor="White" BackgroundColor="Black" HorizontalTextAlignment="Center" SelectedIndex="0" SelectedItem="0" SelectedIndexChanged="pckMes_SelectedIndexChanged"
+            <Picker x:Name="pckMes" TextColor="White" BackgroundColor="Black" HorizontalTextAlignment="Center" SelectedIndexChanged="pckMes_SelectedIndexChanged"
                     Margin="30,0,250,500" VerticalOptions="Start" Grid.Column="1" Grid.Row="1">
                 <Picker.Items>
                     <x:String>Enero</x:String>
@@ -49,7 +49,7 @@
                     <x:String>Diciembre</x:String>
                 </Picker.Items>
             </Picker>
-            <Picker x:Name="pckAnio" TextColor="white" BackgroundColor="Black" HorizontalTextAlignment="Center" SelectedIndex="0" SelectedIndexChanged="pckAnio_SelectedIndexChanged"
+            <Picker x:Name="pckAnio" TextColor="white" BackgroundColor="Black" HorizontalTextAlignment="Center" SelectedIndexChanged="pckAnio_SelectedIndexChanged"
                     Margin="250,0,80,500" VerticalOptions="Start" Grid.Column="1" Grid.Row="1">
 
             </Picker>

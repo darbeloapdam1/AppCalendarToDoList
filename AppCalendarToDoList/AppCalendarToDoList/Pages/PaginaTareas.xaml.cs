@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using AppCalendarToDoList.Pages;
+using AppCalendarToDoList.Model;
 using AppCalendarToDoList.ViewModels;
 
 namespace AppCalendarToDoList.Pages
@@ -14,23 +14,32 @@ namespace AppCalendarToDoList.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PaginaTareas : ContentPage
     {
+        public List<TareaViewModel> tareas { get; set; }
+        public TareaViewModel vm { get; set; }
         public PaginaTareas()
         {
             InitializeComponent();
-            
+            vm = new TareaViewModel();
+            BindingContext = vm;
+            BindableLayout.SetItemsSource(sckTareas, tareas);
             actualizarTareas();
         }
 
-        private void actualizarTareas()
+        private async void actualizarTareas()
         {
-            List<TareaViewModel> tareas = new List<TareaViewModel>();
-            
+            List<TareaViewModel> ListaTareas = new List<TareaViewModel>();
+            List<Tarea> listaTareasModelo = await getTareasAsync();
+            foreach(Tarea tarea in listaTareasModelo)
+            {
+                ListaTareas.Add(new TareaViewModel(tarea));
+            }
+            tareas = ListaTareas;
         }
 
-        private List<Tarea> getTareas()
+        private async Task<List<Tarea>> getTareasAsync()
         {
             List<Tarea> listaTareas = new List<Tarea>();
-
+            listaTareas = await App.SQLiteDB.getTareasAsync();
             return listaTareas;
         }
         private void btnNuevaTarea_Clicked(object sender, EventArgs e)

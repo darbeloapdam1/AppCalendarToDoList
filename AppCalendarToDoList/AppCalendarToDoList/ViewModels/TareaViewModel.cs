@@ -141,8 +141,8 @@ namespace AppCalendarToDoList.ViewModels
         private List<Objetivo> getObjetivosTareaLista(string objetivos){
             List<Objetivo> lista = new List<Objetivo>();
             string[] objsString = objetivos.Split(';');
-            foreach (string singleObjsString in objsString){
-                string[] objFinal = singleObjsString.Split(',');
+            for(int i = 0; i < objsString.Length - 1; i++){
+                string[] objFinal = objsString[i].Split(',');
                 lista.Add(new Objetivo(objFinal[0], bool.Parse(objFinal[1])));
             }
             return lista;

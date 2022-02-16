@@ -26,7 +26,7 @@ namespace AppCalendarToDoList.Pages
             pckAnio.ItemsSource = getAniosPck();
             pckMes.SelectedIndex = 0;
             pckAnio.SelectedIndex = 22;
-            actualizarPagina();
+            actualizarPaginaAsync();           
         }
 
         private void btnNuevoEvento_Clicked(object sender, EventArgs e)
@@ -34,23 +34,36 @@ namespace AppCalendarToDoList.Pages
             Navigation.PushAsync(new PaginaNuevoEvento());
         }
 
-        public void actualizarPagina()
+        public async Task actualizarPaginaAsync()
         {
             int mesNum = getMesNum(pckMes.Items[pckMes.SelectedIndex]);
             int anio = 2022;//int.Parse(pckAnio.Items[pckAnio.SelectedIndex]);
-            diasMes = getDiasMes(new DateTime(anio, mesNum, 1));
-            eventosDia = crearEventosDias();
+            DateTime fecha = new DateTime(anio, mesNum, 1);
+            diasMes = getDiasMes(fecha);
+            eventosDia = await getEventosDiasAsync();
             addDiasGrid(diasMes,eventosDia);
         }
 
-        private List<DiaEventoViewModel> crearEventosDias()
+        private async Task<List<DiaEventoViewModel>> getEventosDiasAsync()
         {
-            List<DiaEventoViewModel> dias = new List<DiaEventoViewModel>();
-            foreach(DateTime fecha in diasMes)
+            List<DiaEvento> dias = new List<DiaEvento>();
+            List<Evento> listaEvento = new List<Evento>();
+            listaEvento = await App.SQLiteDB.getEventosAsync();
+            List<Tarea> listaTarea = new List<Tarea>();
+            listaTarea = await App.SQLiteDB.getTareasAsync();
+            for(int i = 0; i < diasMes[diasMes.Count - 1].Day; i++)
             {
-                dias.Add(new DiaEventoViewModel(fecha));
+                DiaEvento dia = new DiaEvento(new DateTime(2022,getMesNum(pckMes.Items[pckMes.SelectedIndex]), i + 1));
+                dia.Eventos = listaEvento;
+                dia.Tareas = listaTarea;
+                dias.Add(dia);
             }
-            return dias;
+            List<DiaEventoViewModel> listaEventos = new List<DiaEventoViewModel>();
+            foreach(DiaEvento evento in dias)
+            {
+                listaEventos.Add(new DiaEventoViewModel(evento));
+            }
+            return listaEventos;
         }
 
         private List<DateTime> getDiasMes(DateTime fecha)
@@ -140,6 +153,7 @@ namespace AppCalendarToDoList.Pages
                 grdEventos.Children.Add(crearGridEvento(diasMes[i], eventosDia[i]), columna, fila);
                 grdEventos.RowDefinitions.Add(new RowDefinition { Height = new GridLength(10) });
             }
+            grdEventos.RowDefinitions.Add(new RowDefinition { Height = new GridLength(50) });
         }
 
         private Grid crearGridEvento(DateTime fecha, DiaEventoViewModel diaEvento)
@@ -180,7 +194,7 @@ namespace AppCalendarToDoList.Pages
                 Margin = new Thickness(130, 10, 0, 0),
 
             };
-            imgButton.Clicked += (sender, args) => Navigation.PushAsync(new PaginaEventoDetalles(diaEvento));
+            imgButton.Clicked += (sender, args) => Xamarin.Forms.Application.Current.MainPage.Navigation.PushAsync(new PaginaEventoDetalles(diaEvento));
 
             grid.Children.Add(imgButton);
 
@@ -232,12 +246,12 @@ namespace AppCalendarToDoList.Pages
 
         private void pckMes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            actualizarPagina();
+            actualizarPaginaAsync();
         }
 
         private void pckAnio_SelectedIndexChanged(object sender, EventArgs e)
         {
-            actualizarPagina();
+            actualizarPaginaAsync();
         }
     }
 }

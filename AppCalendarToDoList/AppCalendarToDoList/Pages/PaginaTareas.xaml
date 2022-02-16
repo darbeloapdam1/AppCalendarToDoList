@@ -5,7 +5,7 @@
               BackgroundColor="Black"
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-            <Grid>
+        <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="10"></RowDefinition>
                     <RowDefinition Height="540"></RowDefinition>
@@ -16,9 +16,9 @@
                     <ColumnDefinition Width="380"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <ScrollView x:Name="scvTareas" Grid.Row="1" Grid.Column="1" Margin="0,0,0,10">
-                <StackLayout x:Name="sctTareas">
-                <BindableLayout.ItemTemplate>
-                    <DataTemplate>
+                    <StackLayout x:Name="sckTareas">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
                         <Grid x:Name="grdTareas" BackgroundColor="red">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="40"></RowDefinition>
@@ -48,7 +48,7 @@
                          Margin="0,0,0,0"></Ellipse>-->
                                 <Frame x:Name="frmTituloTarea" BorderColor="White" BackgroundColor="Green" CornerRadius="10" 
                        Grid.Column="1" Grid.Row="0"></Frame>
-                                <Label x:Name="lblTitulo" Text="Presentación producto" FontSize="24" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"
+                                <Label x:Name="lblTitulo" Text="{Binding Titulo}" FontSize="24" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"
                        Margin="10,0,0,0" Grid.Column="1" Grid.Row="0"></Label>
                                 <Label x:Name="lblProgreso" Text="63%" FontSize="24" HorizontalTextAlignment="End" VerticalTextAlignment="Center"
                        Margin="0,0,10,0" Grid.Column="1" Grid.Row="0"></Label>

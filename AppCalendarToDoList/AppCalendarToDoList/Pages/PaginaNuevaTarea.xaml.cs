@@ -28,7 +28,7 @@ namespace AppCalendarToDoList.Pages
             if (verificar())
             {
                 string titulo = entTituloTarea.Text;
-                string objetivos = "PRUEBA";
+                string objetivos = "PRUEBA,false";
                 DateTime fechaInicio = new DateTime(dtpFechaInicio.Date.Day, dtpFechaInicio.Date.Month, dtpFechaInicio.Date.Day);
                 DateTime fechaFinal = new DateTime(dtpFechaFinal.Date.Day, dtpFechaFinal.Date.Month, dtpFechaFinal.Date.Day);
                 int prioridad = quePrioridad();
@@ -36,8 +36,9 @@ namespace AppCalendarToDoList.Pages
                 int color = queColor();
                 AppCalendarToDoList.Model.Tarea nuevaTarea =
                     new AppCalendarToDoList.Model.Tarea(titulo, objetivos, fechaInicio, fechaFinal, prioridad, completado, color);
+                App.SQLiteDB.saveTareaAsync(nuevaTarea);
 
-
+                Navigation.PopAsync();
             }
         }
         private bool verificar()

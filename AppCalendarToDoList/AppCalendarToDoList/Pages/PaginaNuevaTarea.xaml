@@ -152,7 +152,7 @@
             <DatePicker x:Name="dtpFechaFinal" TextColor="white" Format="dd/MM/yyyy" Margin="270,0,0,0" Grid.Column="1" Grid.Row="9"></DatePicker>
 
             <Button x:Name="btnGuardarTarea" Text="Guardar tarea" TextColor="white" BackgroundColor="Transparent" BorderColor="white" BorderWidth="1" CornerRadius="20"
-                    Grid.Row="11" Grid.Column="1"></Button>
+                   Clicked="btnGuardarTarea_Clicked" Grid.Row="11" Grid.Column="1"></Button>
 
         </Grid>
     </ContentPage.Content>

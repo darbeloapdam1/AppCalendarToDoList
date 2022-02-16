@@ -13,7 +13,7 @@ namespace AppCalendarToDoList.Data
 
         public SQLiteHelper(string path)
         {
-            db = new SQLiteAsyncConnection(path);
+            db = new SQLiteAsyncConnection(path);            
             db.CreateTableAsync<Evento>().Wait();
             db.CreateTableAsync<Tarea>().Wait();
         }
@@ -31,9 +31,15 @@ namespace AppCalendarToDoList.Data
         {
             return db.QueryAsync<Evento>("SELECT * FROM EVENTO WHERE DAY(diaHoraInicio) == " + dia.Day + " AND MONTH(diaHoraInicio) == " + dia.Month);
         }
-        public Task<List<Tarea>> getTareaAsync()
+
+        public Task<List<Evento>> getEventosAsync()
         {
-            return db.QueryAsync<Tarea>("SELECT * FROM TAREAS WHERE COMPLETADO == 0");
+            return db.QueryAsync<Evento>("SELECT * FROM EVENTO");
+        }
+
+        public Task<List<Tarea>> getTareasAsync()
+        {
+            return db.QueryAsync<Tarea>("SELECT * FROM TAREA WHERE COMPLETADO == 0");
         }
 
         public Task<int> deleteEventoAsync(Evento evento)
