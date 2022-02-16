@@ -191,5 +191,15 @@ namespace AppCalendarToDoList.ViewModels
 
         }
 
+        public void imgButtonClicked()
+        {
+            Page newPage = new PaginaEventoDetalles(this);
+            Device.BeginInvokeOnMainThread(async () =>
+            {
+                await Task.Delay(200);
+                await App.Current.MainPage.Navigation.PushAsync(newPage);
+            });
+        }
+
     }
 }

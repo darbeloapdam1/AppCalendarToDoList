@@ -172,12 +172,17 @@ namespace AppCalendarToDoList.Pages
                 Margin = new Thickness(10, 0, 0, 0)
             }, 0, 0);
 
-            grid.Children.Add(new ImageButton
+
+            ImageButton imgButton = new ImageButton
             {
                 Source = "puntos.png",
                 BackgroundColor = Color.Transparent,
-                Margin = new Thickness(130,10,0,0)
-            });
+                Margin = new Thickness(130, 10, 0, 0),
+
+            };
+            imgButton.Clicked += (sender, args) => Navigation.PushAsync(new PaginaEventoDetalles(diaEvento));
+
+            grid.Children.Add(imgButton);
 
             grid.Children.Add(new Label
             {
@@ -214,7 +219,6 @@ namespace AppCalendarToDoList.Pages
             grid.GestureRecognizers.Add(tapGestureRecognizer);
             return grid;
         }
-
 
         private void clearGrid()
         {
